@@ -586,7 +586,7 @@ export const Login: React.FC = () => {
                   className="w-4 h-4 accent-primary bg-bg border-primary/10 rounded mt-0.5 cursor-pointer"
                 />
                 <label htmlFor="r-news" className="ml-2 text-xs font-medium text-textSecondary cursor-pointer select-none">
-                  Subscribe to the weekly GSSoC learning newsletter
+                  Subscribe to the weekly SkillxPro learning newsletter
                 </label>
               </div>
             </div>

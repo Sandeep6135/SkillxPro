@@ -1,151 +1,102 @@
-# 🎓 SkillxPro - Collaborative Skill Exchange Portal
+# 🎓 SkillxPro — Borderless Peer-to-Peer Skill Exchange Network
 
-<div align="center">
-  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" alt="SkillxPro Banner" width="100%" style="border-radius: 16px; border: 1px solid rgba(124, 111, 255, 0.2);" />
-  
-  <p align="center">
-    <strong>Swap digital skills, teach classes, and level up your career for free with collaborative knowledge tokens.</strong>
-  </p>
+SkillxPro is a borderless, decentralized learning ecosystem designed to facilitate direct peer-to-peer knowledge transfers. Traditional currency is replaced by **Knowledge Tokens**, fostering a collaborative economy where anyone can be a student today and an expert educator tomorrow.
 
-  <p align="center">
-    <img src="https://img.shields.io/badge/GirlScript-GSSoC%202026-blueviolet?style=for-the-badge&logo=github" alt="GSSoC 2026" />
-    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-    <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License" />
-  </p>
-</div>
+Built as a high-fidelity Single Page Application using **React 18 + TypeScript + Tailwind CSS**, the platform integrates rich visual aesthetics, a fully persistent client-side database, and a supercharged administrator terminal.
 
 ---
 
-## 🎯 GSSoC 2026 Overview
+## ⚡ Core Philosophy & Mechanics
 
-Welcome to **SkillxPro**, a prideful participant project for **GirlScript Summer of Code (GSSoC) 2026**! 
+Traditional education systems place teaching and learning in separate silos. SkillxPro bridges this gap using a self-sustaining collaborative ledger:
 
-SkillxPro is a borderless peer-to-peer skill-sharing ecosystem where learning has zero financial friction. Users list courses they want to teach and topics they want to study. Transactions are regulated through secure client-side **knowledge tokens** (loaded automatically on registration). This monorepo is fully migrated to a premium **React + TypeScript + Tailwind CSS** architecture.
-
-> [!IMPORTANT]
-> **Contributor-Ready Sandbox Model**
-> All stateful features (ledgers, direct message hub, class schedulers, and admin controls) run inside a robust, persistent **`localStorage` mock backend**. Contributors can build, test, and preview comprehensive features entirely client-side without configuring external server databases!
+*   **The Equalizer Bonus:** Every new profile is credited with `200 Knowledge Tokens` to jumpstart their learning journey.
+*   **Knowledge Liquidity:** Host sessions in your areas of strength to earn tokens directly from peers.
+*   **Limitless Growth:** Reinvest your earned balance to enroll in expert classes spanning technology, marketing, design, and business.
+*   **True Sandbox Isolation:** The entire application operates inside a persistent `localStorage` database. Enjoy a stateful direct messaging inbox, a transaction ledger, class completion controls, and superadmin configuration overrides without needing to configure complex external backends.
 
 ---
 
-## 📁 Repository Structure
+## 📁 Architecture Overview
+
+SkillxPro is organized as a neat workspace monorepo:
 
 ```
 SkillxPro/
-├── .github/
-│   ├── ISSUE_TEMPLATE/
-│   │   ├── bug_report.md         # Creative bug reporting template
-│   │   └── feature_request.md    # Standard feature proposal schema
-│   └── pull_request_template.md  # Continuous integration validation list
+├── .github/                 # Git issue forms & validation templates
 ├── apps/
-│   └── web/                      # Main React + TS + Tailwind SPA (Vite Workspace)
+│   └── web/                 # Main React + TS + Tailwind SPA (Vite Dev Server)
 │       ├── src/
-│       │   ├── components/       # Modular UI components (Navbar, Footer)
-│       │   ├── context/          # Stateful context layers (AuthContext ledger sync)
-│       │   ├── pages/            # View routes (Home, Login, Dashboard, Admin)
-│       │   ├── types.ts          # Strongly typed entity interfaces
-│       │   └── main.tsx          # Virtual DOM entry point
-│       └── tailwind.config.js    # HSL color system configuration
-├── legacy/                       # Archived Vanilla HTML/CSS/JS files for study
-├── CONTRIBUTING.md               # Ultimate guide for Git workflows & styles
-├── ROADMAP.md                    # backlog milestones categorized by difficulty
-├── CODE_OF_CONDUCT.md            # Community interaction guidelines
-├── LICENSE                       # MIT Open Source License
-└── README.md                     # This file
+│       │   ├── components/  # Core shared elements (Navbar, Footer, Glass cards)
+│       │   ├── context/     # Auth system & reactive localStorage ledger engine
+│       │   ├── pages/       # Responsive views (Home, Login, Dashboard, Admin)
+│       │   ├── types.ts     # Rigid typescript interfaces
+│       │   └── main.tsx     # SPA entry point
+├── legacy/                  # Legacy Vanilla HTML/CSS code files
+├── CONTRIBUTING.md          # Guidelines for open-source participation
+├── ROADMAP.md               # Feature backlog & complexity guides
+└── LICENSE                  # MIT License
 ```
 
 ---
 
-## ✨ Features Implemented
+## ✨ Platform Highlights
 
-### 1. **Robust Authentication Context (`src/context/AuthContext.tsx`)**
-- 🌟 Multi-mode simulated login using Gmail, mobile number, or superadmin credentials.
-- 🌟 Integrated auto-creation of mock-user profiles inside browser local storage databases.
-- 🌟 Escrowed distribution systems minting **200 tokens welcome bonus** for registrations and **150 tokens** for returning sessions.
+### 1. 🛡️ Secure Reactive Authentication (`AuthContext.tsx`)
+*   Passwordless email verification link simulation and SMS login paths.
+*   Intelligent profile generation with custom avatars and tags stored reactively.
+*   Strict session preservation on page reloads.
 
-### 2. **Stateful Direct Chat Hub (`src/pages/Dashboard.tsx`)**
-- 💬 Persistent inbox panel displaying contacts and chat logs.
-- 💬 Sandbox automated response simulation imitating replies from online instructors.
-- 💬 Custom schedules calendars dispatching proposal cards directly in conversation.
+### 2. 💬 Stateful Direct Message Hub (`Dashboard.tsx`)
+*   Persistent inbox allowing learners to message teachers directly.
+*   Interactive sidebar directory with active conversation tracking.
+*   Schedule-request integration to request custom classes and sync timings.
 
-### 3. **Searchable Course Marketplace (`src/pages/Dashboard.tsx`)**
-- 🔍 Live search query matches scanning titles, syllabus descriptions, and names.
-- 🔍 Category filters indexing courses by field (Development, Design, Data, Writing, etc.).
-- 🔍 Stateful token validation blocking enrollments if current balance is insufficient.
+### 3. 🛍️ Fluid Course Marketplace (`Dashboard.tsx`)
+*   Instantly query courses using title, tag, or educator search criteria.
+*   Sleek category filters with interactive border glowing.
+*   Automated balance verification to prevent double-spending or enrollment on insufficient funds.
 
-### 4. **SuperAdmin Terminal Command Center (`src/pages/Admin.tsx`)**
-- 👮 Full overview grid compiling platform metrics (total token supplies, user counts, active listings).
-- 👮 Interactive peer suspensions deck immediate-toggling active / suspended status.
-- 👮 Manual token mint distribution form logging custom awards into the recipients' ledgers.
+### 4. 🎛️ Command-Center SuperAdmin Deck (`Admin.tsx`)
+*   Platform-wide analytics (circulating tokens, registration counts, active courses).
+*   Live controls to suspend accounts, distribute token rewards, or add new skills.
+*   Configuration toggles for maintenance mode, registration locks, and mock transaction fees.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Local Development Guide
 
 ### Prerequisites
+*   **Node.js** (v18.0.0 or higher)
+*   **npm** (or yarn)
 
-Ensure you have [Node.js](https://nodejs.org/) (v18 or higher) and `npm` installed.
+### Quick Setup
 
-### Setup Guide
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/Sandeep6135/SkillxPro.git
+    cd SkillxPro
+    ```
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-username/completeproject.git
-   cd completeproject
-   ```
+2.  **Install Workspace Dependencies**
+    ```bash
+    cd apps/web
+    npm install
+    ```
 
-2. **Navigate to the Web App Workspace**
-   ```bash
-   cd apps/web
-   ```
+3.  **Launch Dev Server**
+    ```bash
+    npm run dev
+    ```
+    *Access your local copy at [http://localhost:3000](http://localhost:3000)*
 
-3. **Install Dependencies**
-   ```bash
-   npm install
-   ```
-
-4. **Launch the Development Server**
-   ```bash
-   npm run dev
-   ```
-   *The application will boot at [http://localhost:3000](http://localhost:3000)*
-
-5. **Build for Production**
-   ```bash
-   npm run build
-   ```
-
----
-
-## 🎨 Premium Aesthetics System
-
-Our application implements a custom-tailored dark mode matching GSSoC vibes:
-- **Primary Indigo Glow**: `#7c6fff` (Vibrant accent borders and CTA gradient backgrounds)
-- **Glassmorphism Grids**: High-end translucent cards built with Backdrop-filter blur and subtle glowing shadows.
-- **Micro-Animations**: Smooth scale transforms on cards hover and coin spins simulating token ledger changes.
-
----
-
-## 🤝 GSSoC Contributing Checkpoints
-
-We welcome contributions of all skill levels! Please consult our [CONTRIBUTING.md](file:///c:/Users/Sandeep/Downloads/completeproject/CONTRIBUTING.md) and [ROADMAP.md](file:///c:/Users/Sandeep/Downloads/completeproject/ROADMAP.md) before pushing commits.
-
-| Difficulty | Focus Area | Reward | Status |
-|---|---|---|---|
-| **Easy** | Add local styling features, fix responsive margins | 10 GSSoC points | Ready |
-| **Medium** | Build out custom user profile tabs and avatars | 20 GSSoC points | Ready |
-| **Hard** | Integrate real Backend JSON APIs, implement JWT | 30 GSSoC points | Backlog |
+4.  **Validate Build Correctness**
+    ```bash
+    npm run build
+    ```
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License. See [LICENSE](file:///c:/Users/Sandeep/Downloads/completeproject/LICENSE) for more details.
-
----
-
-<div align="center">
-  <p><strong>Made with ❤️ by GSSoC 2026 Contributors</strong></p>
-</div>
+Distributed under the MIT License. See `LICENSE` for more information.

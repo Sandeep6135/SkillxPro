@@ -1,89 +1,58 @@
-# 🤝 Contributing to SkillxPro (GSSoC 2026)
+# 🤝 Contributing to SkillxPro
 
-First off, thank you for taking the time to contribute! 🎉 
+We are thrilled that you want to contribute to SkillxPro! Whether you are fixing a UI styling bug, writing TypeScript types, or proposing advanced features from our development roadmap, your support is invaluable.
 
-As a **GirlScript Summer of Code (GSSoC) 2026** project, we encourage open collaboration, code quality, and positive community interactions. Contributions that improve user interfaces, resolve typescript alerts, or add sandbox mockup features are highly appreciated.
-
-Please read through the contributing guidelines below to ensure a smooth merge process.
+Please review this comprehensive guide to align your development setup with our standards.
 
 ---
 
-## 🛠️ Step-by-Step Contribution Flow
+## 🛠️ Developer Setup & Git Workflow
 
-1. **Find an Open Issue**
-   - Head over to the GitHub [Issues page](https://github.com/your-username/completeproject/issues).
-   - Review issues tagged with `gssoc-2026`, `easy`, `medium`, or `hard`.
-   - Comment on the issue asking to be assigned (e.g., *"Please assign this issue to me. I'd love to work on this!"*).
-   - **Do not start working until a maintainer assigns the issue to you.**
+### 1. Fork & Clone
+Fork the repository to your own GitHub account and clone it to your local environment:
+```bash
+git clone https://github.com/Sandeep6135/SkillxPro.git
+cd SkillxPro
+```
 
-2. **Fork and Clone**
-   - Fork this repository by clicking the **Fork** button at the top right of the page.
-   - Clone your fork locally:
-     ```bash
-     git clone https://github.com/your-username/completeproject.git
-     cd completeproject
-     ```
+### 2. Branching Standards
+Always create a clean, descriptive branch before working on code changes:
+*   For UI improvements and new features:
+    ```bash
+    git checkout -b feat/your-feature-name
+    ```
+*   For bugs and optimization tweaks:
+    ```bash
+    git checkout -b fix/your-bug-description
+    ```
 
-3. **Branching Architecture**
-   - Create a separate branch with a descriptive name incorporating the issue tag:
-     ```bash
-     # For new page features:
-     git checkout -b feat/issue-<issue-id>-<description>
-     
-     # For bugs or styling fixes:
-     git checkout -b fix/issue-<issue-id>-<description>
-     ```
+### 3. Run Locally
+Navigate to the web application workspace, install dependencies, and launch the hot-reloading development server:
+```bash
+cd apps/web
+npm install
+npm run dev
+```
 
-4. **Install and Run Locally**
-   ```bash
-   cd apps/web
-   npm install
-   npm run dev
-   ```
-   *Make edits and check the visual layout in your browser!*
+### 4. Code Compilation Checks
+Before opening a pull request, ensure the TypeScript compiler checks and production builds run successfully without errors:
+```bash
+npm run build
+```
 
-5. **Run Linting and Bundling Checks**
-   - Before committing, ensure there are zero typescript or build errors:
-     ```bash
-     npm run build
-     ```
-   - PRs failing compiling checks will be flagged by our maintainers.
-
-6. **Submit a Pull Request**
-   - Commit your changes with a meaningful message:
-     ```bash
-     git add .
-     git commit -m "feat(web): added search query matching inside skill marketplace"
-     ```
-   - Push your branch to your origin fork:
-     ```bash
-     git push origin feat/issue-<issue-id>-<description>
-     ```
-   - Create a Pull Request against our main branch using our premium PR template!
+### 5. Semantic Commits & PRs
+Use semantic commit messaging conventions to describe your changes:
+*   `feat(web): add ratings model and modal inputs`
+*   `fix(web): solve balance arithmetic state sync bug`
+Push to your fork and submit a Pull Request against our main repository branch.
 
 ---
 
-## 📝 Commit Standards
+## 📝 Design & Coding Guidelines
 
-We enforce descriptive, semantic commit messages:
-- `feat(web): ...` for new page features, components, or simulation logic.
-- `fix(web): ...` for styling adjustments, typescript compiler fixes, or layout fixes.
-- `docs: ...` for readme, contributor roadmaps, or markdown code corrections.
-- `chore: ...` for package setup upgrades, vite configs, or build scripts.
+To preserve the premium, custom-coded experience of SkillxPro, please adhere to these guidelines:
 
----
-
-## 💅 Code Styling Guidelines
-
-- **Typography & Font**: Always use standard Outfit classes. Avoid hardcoded tailwind font definitions.
-- **Color System**: Utilize theme colors (`bg`, `bg2`, `primary`, `accent`, `textPrimary`, `textSecondary`) to maintain dark theme consistency.
-- **TypeScript Strictness**: Always define descriptive types in `src/types.ts`. Avoid utilizing `any` inside types or interfaces.
-- **Aesthetics Matters**: Always build components with glassmorphism values and smooth transitional hover scales to match our premium user experience.
-
----
-
-## 💬 Code of Conduct
-
-By participating, you agree to uphold our [CODE_OF_CONDUCT.md](file:///c:/Users/Sandeep/Downloads/completeproject/CODE_OF_CONDUCT.md). Please treat all fellow contributors with kindness and professionalism.
-
-Happy Hacking GSSoC 2026! 🚀
+*   **Typography:** Maintain the **Outfit** typography system across all page elements.
+*   **Colors (Tailwind Theme):** Use tailwind mapping colors (e.g. `bg`, `bg2`, `primary`, `accent`, `textPrimary`, and `textSecondary`) to sustain the dark mode HSL palette.
+*   **TypeScript Accuracy:** Declare strongly typed interfaces in `src/types.ts`. Avoid assigning the `any` type to functions or variable assignments.
+*   **Glassmorphism styling:** Standardize cards and backdrop panels using light opacity blurs, subtle board glows, and smooth transition scaling.

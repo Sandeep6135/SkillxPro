@@ -66,7 +66,7 @@ export const Admin: React.FC = () => {
             SuperAdmin Command Center
           </h1>
           <p className="text-xs text-emerald-400/80 font-bold uppercase tracking-wider">
-            System status: active &middot; GSSoC 2026 Sandbox Environment
+            System status: active &middot; SkillxPro Sandbox Control Deck
           </p>
         </div>
 

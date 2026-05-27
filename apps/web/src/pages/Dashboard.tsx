@@ -358,7 +358,7 @@ export const Dashboard: React.FC = () => {
               <div className="bg-bg2 border border-primary/15 rounded-3xl p-6 shadow-glass space-y-4">
                 <h2 className="text-xl font-black text-textPrimary">Exchange Marketplace</h2>
                 <p className="text-textSecondary text-xs leading-relaxed">
-                  Search active skills listed by our GSSoC peers. Unlock lessons using your collaborative tokens.
+                  Search active skills listed by our community peers. Unlock lessons using your collaborative tokens.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-3">
@@ -735,7 +735,7 @@ export const Dashboard: React.FC = () => {
                 <div className="bg-bg border border-primary/10 rounded-2xl p-4 flex flex-col sm:flex-row justify-between gap-4">
                   <div className="space-y-1 max-w-sm">
                     <span className="text-[10px] font-bold text-accent uppercase tracking-widest block">Sandbox Simulator Mode</span>
-                    <h3 className="font-extrabold text-textPrimary text-sm">Need more tokens to enroll in GSSoC classes?</h3>
+                    <h3 className="font-extrabold text-textPrimary text-sm">Need more tokens to enroll in active classes?</h3>
                     <p className="text-[10px] text-textSecondary leading-relaxed">
                       Simply select a simulation packet below. It will inject mock balances directly into your persistent browser storage ledger!
                     </p>
@@ -842,7 +842,7 @@ export const Dashboard: React.FC = () => {
                     rows={4}
                     value={profileAbout}
                     onChange={(e) => setProfileAbout(e.target.value)}
-                    placeholder="Short statement introducing your skills and GSSoC learning goals..."
+                    placeholder="Short statement introducing your skills and custom learning goals..."
                     className="w-full bg-bg border border-primary/10 rounded-2xl px-4 py-3 text-xs text-textPrimary focus:border-primary/45 focus:outline-none"
                   />
                 </div>

@@ -20,7 +20,7 @@ export const Home: React.FC = () => {
     { title: 'Interactive Class Schedules', desc: 'Coordinate virtual lessons effortlessly with an integrated scheduling interface.', icon: '📅' },
     { title: 'Direct Messaging Inbox', desc: 'Chat directly with peers, ask clarification questions, and plan courses seamlessly.', icon: '💬' },
     { title: 'High-End SuperAdmin Hub', desc: 'Complete administrative command to regulate system settings, items, and users.', icon: '👮' },
-    { title: 'GSSoC 2026 Ready', desc: 'Outstanding structure built following optimal React and TypeScript standards for open source.', icon: '⚡' },
+    { title: 'Production Ready', desc: 'Outstanding structure built following optimal React and TypeScript standards for enterprise-grade scalability.', icon: '⚡' },
   ];
 
   const steps = [
@@ -47,7 +47,7 @@ export const Home: React.FC = () => {
     { q: 'Are there any hidden fees?', a: 'No! SkillxPro is 100% free and open-source. There are no registration costs, subscription plans, or hidden microtransactions.' },
     { q: 'What topics can I teach or learn?', a: 'You can teach anything you are skilled at! From programming languages and design tools to creative writing, languages, music, and business management.' },
     { q: 'How do I schedule a class?', a: 'Once you find a skill you like in the marketplace, you can click to Message the teacher. Direct messaging allows you to align on a time. Once agreed, the teacher schedules the class, and tokens are safely escrowed.' },
-    { q: 'Is this project open-source?', a: 'Yes! SkillxPro is a prideful participant of GirlScript Summer of Code (GSSoC) 2026. Anyone can inspect the code, add features, and submit PRs following our GSSoC contributor roadmap.' },
+    { q: 'Is this project open-source?', a: 'Yes! SkillxPro is an open-source project. Anyone can inspect the code, add new features, and submit pull requests following our community contributor guidelines.' },
   ];
 
   return (
@@ -57,7 +57,7 @@ export const Home: React.FC = () => {
         {/* Glowing badge */}
         <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 text-xs sm:text-sm text-primary-light font-semibold shadow-glow animate-pulse">
           <Sparkles className="w-4 h-4 text-yellow-400" />
-          <span>GSSoC 2026 Contributor-Ready Project</span>
+          <span>Open Source Contributor-Ready Project</span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight max-w-5xl">
@@ -112,7 +112,7 @@ export const Home: React.FC = () => {
                 Complete Glassmorphism Interface
               </h3>
               <p className="text-textSecondary text-sm md:text-base leading-relaxed">
-                Enjoy fluid custom widgets, interactive budget calculators, a persistent message inbox, and highly descriptive GSSoC roadmap checkpoints right from your browser.
+                Enjoy fluid custom widgets, interactive budget calculators, a persistent message inbox, and highly descriptive roadmap checkpoints right from your browser.
               </p>
               <ul className="grid grid-cols-2 gap-2 text-xs md:text-sm text-textPrimary font-medium">
                 <li className="flex items-center"><Check className="w-4 h-4 text-accent mr-2" /> 200 Welcome Tokens</li>

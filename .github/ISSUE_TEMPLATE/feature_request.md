@@ -1,8 +1,8 @@
 ---
 name: "🚀 Feature Request"
-about: Propose a new page feature, custom component slider, or automated sandbox responder to our contributor roadmaps
+about: Propose a new page feature, custom component slider, or automated sandbox responder to our project backlog
 title: "[FEAT] <Short description of feature request>"
-labels: ["enhancement", "gssoc-2026"]
+labels: ["enhancement", "triage"]
 assignees: []
 
 ---

@@ -2,7 +2,7 @@
 name: "🐛 Bug Report"
 about: Report a rendering issue, typescript warning, or state sync error to help us refine the sandbox experience
 title: "[BUG] <Short description of the bug>"
-labels: ["bug", "gssoc-2026"]
+labels: ["bug", "triage"]
 assignees: []
 
 ---

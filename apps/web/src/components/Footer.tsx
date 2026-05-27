@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Twitter, Linkedin, Heart, HelpCircle, Terminal } from 'lucide-react';
+import { Github, Twitter, Linkedin, Heart, HelpCircle } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -56,12 +56,12 @@ export const Footer: React.FC = () => {
 
           {/* Community & Contributor Links */}
           <div>
-            <h3 className="text-sm font-semibold text-textPrimary tracking-wider uppercase mb-4">GSSoC 2026</h3>
+            <h3 className="text-sm font-semibold text-textPrimary tracking-wider uppercase mb-4">Community</h3>
             <ul className="space-y-2 text-sm text-textSecondary">
               <li>
-                <a href="https://gssoc.girlscript.tech" target="_blank" rel="noreferrer" className="hover:text-textPrimary transition-colors flex items-center">
-                  <Terminal className="w-3.5 h-3.5 mr-1" />
-                  GirlScript Hub
+                <a href="https://github.com/Sandeep6135/SkillxPro" target="_blank" rel="noreferrer" className="hover:text-textPrimary transition-colors flex items-center">
+                  <Github className="w-3.5 h-3.5 mr-1" />
+                  GitHub Repository
                 </a>
               </li>
               <li>
@@ -84,7 +84,7 @@ export const Footer: React.FC = () => {
         <div className="border-t border-primary/10 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-textSecondary space-y-4 sm:space-y-0">
           <p>© {new Date().getFullYear()} SkillxPro. All rights reserved.</p>
           <p className="flex items-center text-xs">
-            Made with <Heart className="w-3.5 h-3.5 text-red-500 mx-1 fill-red-500" /> by GSSoC 2026 Contributors
+            Made with <Heart className="w-3.5 h-3.5 text-red-500 mx-1 fill-red-500" /> by SkillxPro Contributors
           </p>
         </div>
       </div>
