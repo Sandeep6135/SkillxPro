@@ -171,3 +171,35 @@
 .animate-bar-fill {
   animation: barFill 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
+
+/* Premium 3D Flip Card Styles */
+.flip-card-container {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 24px;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}

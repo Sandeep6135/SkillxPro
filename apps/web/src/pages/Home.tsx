@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { ArrowRight, BookOpen, Users, Compass, ShieldCheck, HelpCircle, Star, Sparkles } from 'lucide-react';
@@ -6,6 +6,14 @@ import { ArrowRight, BookOpen, Users, Compass, ShieldCheck, HelpCircle, Star, Sp
 export const Home: React.FC = () => {
   const { user, allUsers, skills, schedules } = useAuth();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIsFlipped(prev => !prev);
+    }, 4000); // smooth flip every 4 seconds
+    return () => clearInterval(timer);
+  }, []);
 
   // Derive stats dynamically from context to clean up dummy data
   const stats = [
@@ -144,19 +152,35 @@ export const Home: React.FC = () => {
                 </div>
               </div>
 
-              {/* Floating micro panels pinned perfectly as "wings" outside the card boundaries */}
-              <div className="google-card absolute -top-6 -right-12 w-48 h-24 p-5 z-30 shadow-elevation2 animate-google-float-1 flex flex-col justify-center border-l-4 border-l-primary bg-white">
-                <div className="text-[10px] text-textSecondary uppercase tracking-wider font-bold mb-1">Total Network Value</div>
-                <div className="text-2xl text-textPrimary font-black tracking-tight">$12,450</div>
-              </div>
+              {/* Premium 3D Animated Flip Card (Alternates content on interval with zero overlapping) */}
+              <div className="absolute -bottom-8 -right-12 w-52 h-28 z-30 flip-card-container animate-google-float-1 select-none">
+                <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
+                  
+                  {/* Front Side: Network Value */}
+                  <div className="flip-card-front google-card p-5 flex flex-col justify-center border-l-4 border-l-primary bg-white shadow-elevation2">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[10px] text-textSecondary uppercase tracking-wider font-bold">Total Network Value</span>
+                      <span className="material-symbols-outlined text-primary text-sm">trending_up</span>
+                    </div>
+                    <div className="text-2xl text-textPrimary font-black tracking-tight">$12,450</div>
+                    <div className="text-[9px] text-success font-semibold mt-0.5">▲ +18.4% this week</div>
+                  </div>
 
-              <div className="google-card absolute -bottom-6 -left-12 w-40 h-32 p-4 z-30 shadow-elevation2 animate-google-float-2 flex flex-col justify-between border-b-4 border-b-accent bg-white">
-                <div className="text-[10px] text-textSecondary uppercase tracking-wider font-bold">Network Speed</div>
-                <div className="flex items-end gap-1.5 h-12">
-                  <div className="w-1/4 bg-slate-200 h-[40%] rounded-t"></div>
-                  <div className="w-1/4 bg-slate-200 h-[70%] rounded-t"></div>
-                  <div className="w-1/4 bg-accent h-[100%] rounded-t"></div>
-                  <div className="w-1/4 bg-accent/60 h-[85%] rounded-t"></div>
+                  {/* Back Side: Network Speed */}
+                  <div className="flip-card-back google-card p-5 flex flex-col justify-between border-l-4 border-l-accent bg-white shadow-elevation2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-textSecondary uppercase tracking-wider font-bold">Exchange Speed</span>
+                      <span className="material-symbols-outlined text-accent text-sm">bolt</span>
+                    </div>
+                    <div className="flex items-end gap-1.5 h-10 mt-1">
+                      <div className="w-1/5 bg-slate-100 h-[40%] rounded-t"></div>
+                      <div className="w-1/5 bg-slate-100 h-[70%] rounded-t"></div>
+                      <div className="w-1/5 bg-accent h-[100%] rounded-t"></div>
+                      <div className="w-1/5 bg-accent/60 h-[85%] rounded-t"></div>
+                      <div className="w-1/5 bg-accent/40 h-[60%] rounded-t"></div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
