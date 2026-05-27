@@ -59,7 +59,7 @@ export const Admin: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
       
       {/* Admin header */}
-      <div className="glass-card border-emerald-500/30 rounded-3xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:border-emerald-500/50">
+      <div className="google-card border-emerald-500/30 rounded-3xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-elevation2">
         <div className="space-y-1">
           <h1 className="text-2xl font-black text-textPrimary flex items-center">
             <ShieldCheck className="w-6 h-6 text-emerald-400 mr-2" />
@@ -113,7 +113,7 @@ export const Admin: React.FC = () => {
           
           {/* Card grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="glass-card rounded-2xl p-6 flex items-center justify-between">
+            <div className="google-card shadow-elevation1 rounded-2xl p-6 flex items-center justify-between">
               <div>
                 <span className="text-[10px] text-textSecondary uppercase font-bold tracking-wider">Economy Users</span>
                 <h4 className="text-2xl font-black text-white mt-1">{allUsers.length} Peers</h4>
@@ -121,7 +121,7 @@ export const Admin: React.FC = () => {
               <Users className="w-8 h-8 text-primary" />
             </div>
 
-            <div className="glass-card rounded-2xl p-6 flex items-center justify-between">
+            <div className="google-card shadow-elevation1 rounded-2xl p-6 flex items-center justify-between">
               <div>
                 <span className="text-[10px] text-textSecondary uppercase font-bold tracking-wider">Tokens Circulating</span>
                 <h4 className="text-2xl font-black text-white mt-1">{totalEconomyTokens}</h4>
@@ -129,7 +129,7 @@ export const Admin: React.FC = () => {
               <Coins className="w-8 h-8 text-yellow-400 fill-yellow-400" />
             </div>
 
-            <div className="glass-card rounded-2xl p-6 flex items-center justify-between">
+            <div className="google-card shadow-elevation1 rounded-2xl p-6 flex items-center justify-between">
               <div>
                 <span className="text-[10px] text-textSecondary uppercase font-bold tracking-wider">Available Courses</span>
                 <h4 className="text-2xl font-black text-white mt-1">{skills.length} listed</h4>
@@ -137,7 +137,7 @@ export const Admin: React.FC = () => {
               <BookOpen className="w-8 h-8 text-accent" />
             </div>
 
-            <div className="glass-card rounded-2xl p-6 flex items-center justify-between">
+            <div className="google-card shadow-elevation1 rounded-2xl p-6 flex items-center justify-between">
               <div>
                 <span className="text-[10px] text-textSecondary uppercase font-bold tracking-wider">System Flags</span>
                 <h4 className="text-xs font-black text-white mt-1.5 uppercase leading-relaxed">
@@ -150,7 +150,7 @@ export const Admin: React.FC = () => {
           </div>
 
           {/* Ledger distributing widget */}
-          <div className="glass-card rounded-3xl p-6 space-y-4">
+          <div className="google-card shadow-elevation1 rounded-3xl p-6 space-y-4">
             <h3 className="font-extrabold text-textPrimary text-base flex items-center">
               <Plus className="w-5 h-5 text-emerald-400 mr-2" />
               Manual Token Distribution
@@ -221,7 +221,7 @@ export const Admin: React.FC = () => {
 
       {/* USER TAB */}
       {activeAdminTab === 'users' && (
-        <div className="glass-card rounded-3xl p-6 space-y-4 animate-fade-in">
+        <div className="google-card shadow-elevation1 rounded-3xl p-6 space-y-4 animate-fade-in">
           <h2 className="text-xl font-black text-textPrimary">User Directory Panel</h2>
           <p className="text-textSecondary text-xs">
             Review registration status and manage suspension states of active users.
@@ -286,7 +286,7 @@ export const Admin: React.FC = () => {
 
       {/* SKILLS TAB */}
       {activeAdminTab === 'skills' && (
-        <div className="glass-card rounded-3xl p-6 space-y-4 animate-fade-in">
+        <div className="google-card shadow-elevation1 rounded-3xl p-6 space-y-4 animate-fade-in">
           <h2 className="text-xl font-black text-textPrimary">Published Skill Directory</h2>
           <p className="text-textSecondary text-xs">
             Review or remove current digital courses listed inside the platform database.
@@ -323,7 +323,7 @@ export const Admin: React.FC = () => {
 
       {/* CONFIG CENTER TAB */}
       {activeAdminTab === 'config' && (
-        <div className="glass-card rounded-3xl p-6 space-y-6 animate-fade-in">
+        <div className="google-card shadow-elevation1 rounded-3xl p-6 space-y-6 animate-fade-in">
           <div className="space-y-1">
             <h2 className="text-xl font-black text-textPrimary">System Flag Configurations</h2>
             <p className="text-textSecondary text-xs">

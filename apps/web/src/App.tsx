@@ -44,23 +44,15 @@ const AdminProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children
 const AppContent: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-bg text-textPrimary relative">
-      {/* Ambient Mesh Background */}
-      <div className="mesh-bg">
-        <div className="mesh-glow mesh-glow-1"></div>
-        <div className="mesh-glow mesh-glow-2"></div>
-        <div className="mesh-glow mesh-glow-3"></div>
-        
-        {/* Ambient Pulsating Skill Nodes */}
-        <div className="skill-node" style={{ top: '20%', left: '15%', animationDelay: '0.2s' }}></div>
-        <div className="skill-node" style={{ top: '60%', left: '80%', animationDelay: '1.5s' }}></div>
-        <div className="skill-node" style={{ top: '40%', left: '85%', animationDelay: '0.8s' }}></div>
-        <div className="skill-node" style={{ top: '75%', left: '25%', animationDelay: '2.1s' }}></div>
-      </div>
+      {/* Soft Premium Google Tonal Gradients */}
+      <div className="absolute top-0 left-0 right-0 h-[400px] bg-gradient-to-b from-primary/5 to-transparent pointer-events-none z-0" />
+      <div className="absolute top-[20%] left-[-10%] w-[350px] h-[350px] bg-primary/5 rounded-full filter blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[450px] h-[450px] bg-accent/5 rounded-full filter blur-[100px] pointer-events-none" />
 
       <Navbar />
       
       {/* Page content wrapper */}
-      <main className="flex-grow pt-16">
+      <main className="flex-grow pt-16 z-10 relative">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

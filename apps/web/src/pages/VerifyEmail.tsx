@@ -80,11 +80,11 @@ export const VerifyEmail: React.FC = () => {
     <div className="min-h-[80vh] flex items-center justify-center px-4 relative py-12">
       <div className="absolute w-[400px] h-[400px] bg-primary/10 rounded-full filter blur-[80px] pointer-events-none" />
 
-      <div className="w-full max-w-md glass-card rounded-3xl p-8 animate-fade-in space-y-6 relative z-10 text-center">
+      <div className="w-full max-w-md google-card rounded-3xl p-8 shadow-elevation2 animate-fade-in space-y-6 relative z-10 text-center">
         
         {/* Header */}
         <div className="space-y-2">
-          <div className="inline-flex p-3 bg-primary/10 border border-primary/20 rounded-full text-primary-light">
+          <div className="inline-flex p-3 bg-primary/10 border border-primary/20 rounded-full text-primary">
             <Mail className="w-6 h-6 animate-pulse" />
           </div>
           <h2 className="text-2xl font-black text-textPrimary">Verify Your Account</h2>
@@ -96,13 +96,13 @@ export const VerifyEmail: React.FC = () => {
 
         {/* Messaging Box */}
         {error && (
-          <div className="flex items-center justify-center space-x-2 bg-red-500/10 border border-red-500/30 text-red-400 p-3.5 rounded-2xl text-xs">
+          <div className="flex items-center justify-center space-x-2 bg-red-50 border border-red/30 text-danger p-3.5 rounded-2xl text-xs">
             <AlertCircle className="w-4 h-4 flex-shrink-0" />
             <span>{error}</span>
           </div>
         )}
         {success && (
-          <div className="flex items-center justify-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 p-3.5 rounded-2xl text-xs">
+          <div className="flex items-center justify-center space-x-2 bg-emerald-50 border border-accent/30 text-accent-dark p-3.5 rounded-2xl text-xs font-bold">
             <ShieldCheck className="w-4 h-4 flex-shrink-0" />
             <span>{success}</span>
           </div>
@@ -122,20 +122,20 @@ export const VerifyEmail: React.FC = () => {
                 }}
                 onChange={(e) => handleChange(idx, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(idx, e)}
-                className="w-11 h-12 text-center bg-bg border border-primary/15 text-textPrimary text-lg font-bold rounded-xl focus:border-primary/60 focus:outline-none transition-all shadow-inner"
+                className="w-11 h-12 text-center bg-bg border border-slate-200 text-textPrimary text-lg font-bold rounded-xl focus:border-primary focus:google-focus focus:outline-none transition-all shadow-inner"
               />
             ))}
           </div>
 
           <div className="text-[10px] text-textSecondary font-semibold">
-            Hint: Enter standard mockup code <span className="text-accent font-bold">123456</span> to complete instantly.
+            Hint: Enter standard mockup code <span className="text-accent-dark font-bold">123456</span> to complete instantly.
           </div>
 
           {/* Verify button */}
           <button
             type="submit"
             disabled={isVerifying}
-            className="w-full flex items-center justify-center btn-primary font-bold py-3 rounded-2xl shadow-glow active:scale-[0.98] disabled:opacity-50"
+            className="w-full flex items-center justify-center google-btn-primary font-bold py-3 px-4 rounded-full active:scale-95 disabled:opacity-50"
           >
             {isVerifying ? (
               <span className="flex items-center space-x-2">

@@ -20,47 +20,54 @@ export const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-2xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-bg2 border-b border-slate-200 shadow-sm h-16 flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex items-center justify-between h-full">
+          
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center space-x-8">
             <Link to="/" className="flex items-center space-x-2 group">
-              <span className="text-xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:opacity-90 transition-opacity tracking-tight">
-                SkillxPro
+              <span className="text-xl font-black text-primary tracking-tight">
+                Skill<span className="text-accent">x</span>Pro
               </span>
             </Link>
-          </div>
 
-          {/* Desktop Nav Items */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link 
-              to="/" 
-              className={`text-sm font-bold transition-all duration-300 hover:text-accent font-label-md ${
-                isActive('/') ? 'text-accent drop-shadow-[0_0_8px_#4edea3]' : 'text-textSecondary'
-              }`}
-            >
-              Home
-            </Link>
-            
-            {user && (
-              <>
+            {/* Desktop Nav Items */}
+            <div className="hidden md:flex items-center space-x-1 h-16">
+              <Link 
+                to="/" 
+                className={`relative px-3 flex items-center h-full text-sm font-bold tracking-wide transition-colors ${
+                  isActive('/') ? 'text-primary' : 'text-textSecondary hover:text-textPrimary'
+                }`}
+              >
+                <span>Home</span>
+                {isActive('/') && (
+                  <div className="absolute bottom-0 left-3 right-3 h-1 bg-primary rounded-t-full" />
+                )}
+              </Link>
+              
+              {user && (
                 <Link 
                   to="/dashboard" 
-                  className={`text-sm font-bold transition-all duration-300 hover:text-accent font-label-md ${
-                    isActive('/dashboard') ? 'text-accent drop-shadow-[0_0_8px_#4edea3]' : 'text-textSecondary'
+                  className={`relative px-3 flex items-center h-full text-sm font-bold tracking-wide transition-colors ${
+                    isActive('/dashboard') ? 'text-primary' : 'text-textSecondary hover:text-textPrimary'
                   }`}
                 >
-                  Dashboard
+                  <span>Dashboard</span>
+                  {isActive('/dashboard') && (
+                    <div className="absolute bottom-0 left-3 right-3 h-1 bg-primary rounded-t-full" />
+                  )}
                 </Link>
-              </>
-            )}
+              )}
+            </div>
+          </div>
 
+          <div className="hidden md:flex items-center space-x-4">
             {adminUser && (
               <Link 
                 to="/admin" 
-                className={`flex items-center text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors ${
-                  isActive('/admin') ? 'underline underline-offset-4' : ''
+                className={`flex items-center text-xs font-bold text-danger hover:underline uppercase tracking-wider ${
+                  isActive('/admin') ? 'underline underline-offset-4 font-black' : ''
                 }`}
               >
                 <ShieldAlert className="w-4 h-4 mr-1" />
@@ -72,8 +79,8 @@ export const Navbar: React.FC = () => {
             {user ? (
               <div className="flex items-center space-x-4">
                 {/* Tokens display */}
-                <div className="flex items-center bg-primary/10 border border-primary/20 rounded-full px-3 py-1 text-sm text-primary-light font-bold shadow-glow animate-pulse">
-                  <Coins className="w-4 h-4 mr-1 text-yellow-400 fill-yellow-400" />
+                <div className="flex items-center google-badge-blue border border-primary/20 rounded-full px-3 py-1 text-xs font-bold shadow-sm">
+                  <Coins className="w-3.5 h-3.5 mr-1.5 text-warning fill-warning" />
                   <span>{user.tokens} Tokens</span>
                 </div>
 
@@ -81,51 +88,51 @@ export const Navbar: React.FC = () => {
                 <div className="relative">
                   <button 
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex items-center space-x-2 bg-bg2 border border-primary/15 rounded-full px-3 py-1.5 hover:border-primary/45 transition-all text-sm font-medium text-textPrimary"
+                    className="flex items-center space-x-2 bg-slate-50 border border-slate-200 hover:border-slate-300 rounded-full px-3 py-1.5 transition-all text-xs font-bold text-textPrimary"
                   >
                     <img 
                       src={user.avatarUrl || `https://api.dicebear.com/7.x/initials/svg?seed=${user.name}`} 
                       alt={user.name} 
-                      className="w-6 h-6 rounded-full border border-primary/30"
+                      className="w-6 h-6 rounded-full border border-slate-200"
                     />
                     <span className="max-w-[100px] truncate">{user.name}</span>
                   </button>
 
                   {isDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-48 rounded-xl bg-bg2 border border-primary/25 shadow-glass py-1 z-50 text-sm">
-                      <div className="px-4 py-2 border-b border-primary/10 text-xs text-textSecondary truncate">
+                    <div className="absolute right-0 mt-2 w-52 rounded-2xl bg-bg2 border border-slate-200 shadow-elevation2 py-2.5 z-50 text-sm">
+                      <div className="px-4 py-2 border-b border-slate-100 text-xs text-textSecondary truncate">
                         Signed in as <br />
-                        <span className="font-semibold text-textPrimary">{user.identifier}</span>
+                        <span className="font-bold text-textPrimary">{user.identifier}</span>
                       </div>
                       <Link 
                         to="/dashboard?tab=profile" 
                         onClick={() => setIsDropdownOpen(false)}
-                        className="flex items-center px-4 py-2 text-textSecondary hover:text-textPrimary hover:bg-primary/10 transition-colors"
+                        className="flex items-center px-4 py-2.5 text-textSecondary hover:text-textPrimary hover:bg-slate-50 transition-colors font-medium"
                       >
-                        <UserIcon className="w-4 h-4 mr-2" />
+                        <UserIcon className="w-4 h-4 mr-2.5 text-textSecondary" />
                         My Profile
                       </Link>
                       <Link 
                         to="/dashboard?tab=skills" 
                         onClick={() => setIsDropdownOpen(false)}
-                        className="flex items-center px-4 py-2 text-textSecondary hover:text-textPrimary hover:bg-primary/10 transition-colors"
+                        className="flex items-center px-4 py-2.5 text-textSecondary hover:text-textPrimary hover:bg-slate-50 transition-colors font-medium"
                       >
-                        <BookOpen className="w-4 h-4 mr-2" />
+                        <BookOpen className="w-4 h-4 mr-2.5 text-textSecondary" />
                         My Skills
                       </Link>
                       <Link 
                         to="/dashboard?tab=chat" 
                         onClick={() => setIsDropdownOpen(false)}
-                        className="flex items-center px-4 py-2 text-textSecondary hover:text-textPrimary hover:bg-primary/10 transition-colors"
+                        className="flex items-center px-4 py-2.5 text-textSecondary hover:text-textPrimary hover:bg-slate-50 transition-colors font-medium"
                       >
-                        <MessageSquare className="w-4 h-4 mr-2" />
+                        <MessageSquare className="w-4 h-4 mr-2.5 text-textSecondary" />
                         Chat Hub
                       </Link>
                       <button 
                         onClick={handleLogout}
-                        className="w-full flex items-center px-4 py-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 border-t border-primary/10 transition-colors text-left"
+                        className="w-full flex items-center px-4 py-2.5 text-danger hover:text-danger-dark hover:bg-red-50 border-t border-slate-100 transition-colors text-left font-bold"
                       >
-                        <LogOut className="w-4 h-4 mr-2" />
+                        <LogOut className="w-4 h-4 mr-2.5" />
                         Log Out
                       </button>
                     </div>
@@ -134,14 +141,14 @@ export const Navbar: React.FC = () => {
               </div>
             ) : adminUser ? (
               <div className="flex items-center space-x-4">
-                <span className="text-xs uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full px-2.5 py-0.5 font-semibold">
-                  Admin
+                <span className="text-xs uppercase bg-danger/10 text-danger border border-danger/20 rounded-full px-3 py-0.5 font-bold">
+                  Admin Active
                 </span>
                 <button 
                   onClick={handleLogout}
-                  className="flex items-center bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 text-red-400 hover:text-red-300 text-sm font-semibold rounded-full px-4 py-1.5 transition-all"
+                  className="flex items-center bg-slate-50 border border-slate-200 hover:bg-slate-100 text-danger text-xs font-bold rounded-full px-4 py-1.5 transition-all"
                 >
-                  <LogOut className="w-4 h-4 mr-1" />
+                  <LogOut className="w-4 h-4 mr-1.5" />
                   Log Out
                 </button>
               </div>
@@ -149,15 +156,15 @@ export const Navbar: React.FC = () => {
               <div className="flex items-center space-x-4">
                 <Link 
                   to="/login" 
-                  className="text-sm font-semibold text-textPrimary hover:text-accent transition-colors"
+                  className="text-sm font-bold text-textSecondary hover:text-primary transition-colors"
                 >
                   Sign In
                 </Link>
                 <Link 
                   to="/login?tab=register" 
-                  className="btn-primary hover:opacity-95 text-sm font-bold px-5 py-2.5 rounded-xl shadow-glow active:scale-95 transition-transform"
+                  className="google-btn-primary text-sm px-6 py-2.5 shadow-sm active:scale-95 transition-transform"
                 >
-                  Initialize Exchange
+                  Get Started
                 </Link>
               </div>
             )}
@@ -177,11 +184,11 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-bg2 border-b border-primary/10 px-4 pt-2 pb-4 space-y-2 animate-fade-in shadow-glass">
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-bg2 border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 animate-fade-in shadow-elevation2 z-50">
           <Link 
             to="/" 
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`block px-3 py-2 rounded-md text-base font-medium ${
+            className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
               isActive('/') ? 'bg-primary/10 text-primary' : 'text-textSecondary hover:text-textPrimary'
             }`}
           >
@@ -193,15 +200,15 @@ export const Navbar: React.FC = () => {
               <Link 
                 to="/dashboard" 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                className={`block px-3 py-2.5 rounded-xl text-base font-bold ${
                   isActive('/dashboard') ? 'bg-primary/10 text-primary' : 'text-textSecondary hover:text-textPrimary'
                 }`}
               >
                 Dashboard
               </Link>
-              <div className="flex items-center justify-between px-3 py-2 text-primary-light font-bold text-sm bg-primary/10 rounded-lg">
+              <div className="flex items-center justify-between px-3 py-2.5 text-primary font-bold text-sm bg-primary/10 rounded-xl">
                 <div className="flex items-center">
-                  <Coins className="w-4 h-4 mr-1 text-yellow-400 fill-yellow-400" />
+                  <Coins className="w-4 h-4 mr-1.5 text-warning fill-warning" />
                   <span>Your Balance</span>
                 </div>
                 <span>{user.tokens} Tokens</span>
@@ -213,17 +220,17 @@ export const Navbar: React.FC = () => {
             <Link 
               to="/admin" 
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-3 py-2 text-emerald-400 font-medium hover:bg-emerald-500/10 rounded-md"
+              className="block px-3 py-2.5 text-danger font-bold hover:bg-red-50 rounded-xl"
             >
               👮 Admin Panel
             </Link>
           )}
 
-          <div className="pt-4 border-t border-primary/10">
+          <div className="pt-4 border-t border-slate-100">
             {user ? (
               <button 
                 onClick={handleLogout}
-                className="w-full flex items-center px-3 py-2 text-red-400 hover:bg-red-500/10 rounded-md font-medium"
+                className="w-full flex items-center px-3 py-2.5 text-danger hover:bg-red-50 rounded-xl font-bold"
               >
                 <LogOut className="w-4 h-4 mr-2" />
                 Log Out
@@ -231,7 +238,7 @@ export const Navbar: React.FC = () => {
             ) : adminUser ? (
               <button 
                 onClick={handleLogout}
-                className="w-full flex items-center px-3 py-2 text-red-400 hover:bg-red-500/10 rounded-md font-medium"
+                className="w-full flex items-center px-3 py-2.5 text-danger hover:bg-red-50 rounded-xl font-bold"
               >
                 <LogOut className="w-4 h-4 mr-2" />
                 Log Out Admin
@@ -241,14 +248,14 @@ export const Navbar: React.FC = () => {
                 <Link 
                   to="/login" 
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-center w-full border border-primary/20 text-textPrimary py-2 rounded-full text-sm font-semibold hover:border-primary/50"
+                  className="block text-center w-full border border-slate-200 text-textSecondary py-2.5 rounded-full text-sm font-bold hover:border-slate-300"
                 >
                   Sign In
                 </Link>
                 <Link 
                   to="/login?tab=register" 
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-center w-full bg-gradient-to-r from-primary to-primary-light text-white py-2 rounded-full text-sm font-semibold shadow-glow"
+                  className="block text-center w-full google-btn-primary py-2.5 text-sm active:scale-95 transition-transform"
                 >
                   Get Started
                 </Link>

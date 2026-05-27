@@ -27,7 +27,7 @@ export const Success: React.FC = () => {
       <div className="absolute w-[500px] h-[500px] bg-accent/5 rounded-full filter blur-[100px] pointer-events-none" />
       <div className="absolute w-[300px] h-[300px] bg-primary/10 rounded-full filter blur-[70px] pointer-events-none transform -translate-y-20" />
 
-      <div className="w-full max-w-md glass-card rounded-3xl p-8 text-center animate-fade-in relative z-10 space-y-6">
+      <div className="w-full max-w-md google-card rounded-3xl p-8 text-center shadow-elevation2 animate-fade-in relative z-10 space-y-6">
         
         {/* Success Icon */}
         <div className="flex justify-center">

@@ -267,15 +267,15 @@ export const Login: React.FC = () => {
       {/* Dynamic Purple/Indigo glow behind card */}
       <div className="absolute w-[600px] h-[400px] bg-primary/10 rounded-full filter blur-[70px] pointer-events-none transform translate-y-[-50px]" />
       
-      <div className="w-full max-w-lg glass-card rounded-3xl p-8 transform hover:-translate-y-1 transition-all duration-300 relative z-10">
+      <div className="w-full max-w-lg google-card rounded-3xl p-8 shadow-elevation2 transform hover:-translate-y-1 transition-all duration-300 relative z-10">
         
         {/* Toggle tabs */}
-        <div className="flex bg-bg rounded-2xl p-1.5 border border-primary/10 mb-8">
+        <div className="flex bg-slate-50 rounded-2xl p-1.5 border border-slate-200 mb-8">
           <button 
             type="button"
             onClick={() => handleTabSwitch('login')}
             className={`flex-1 text-center py-2.5 font-bold rounded-xl text-sm transition-all ${
-              activeTab === 'login' ? 'bg-gradient-to-r from-primary to-accent text-bg shadow-glow' : 'text-textSecondary hover:text-textPrimary'
+              activeTab === 'login' ? 'bg-primary text-white shadow-sm' : 'text-textSecondary hover:text-textPrimary'
             }`}
           >
             Sign In
@@ -284,7 +284,7 @@ export const Login: React.FC = () => {
             type="button"
             onClick={() => handleTabSwitch('register')}
             className={`flex-1 text-center py-2.5 font-bold rounded-xl text-sm transition-all ${
-              activeTab === 'register' ? 'bg-gradient-to-r from-primary to-accent text-bg shadow-glow' : 'text-textSecondary hover:text-textPrimary'
+              activeTab === 'register' ? 'bg-primary text-white shadow-sm' : 'text-textSecondary hover:text-textPrimary'
             }`}
           >
             Create Account
@@ -596,7 +596,7 @@ export const Login: React.FC = () => {
           <button 
             type="submit"
             disabled={isSubmitting}
-            className="w-full flex items-center justify-center btn-primary font-bold py-3 px-4 rounded-2xl shadow-glow active:scale-[0.98] disabled:opacity-50"
+            className="w-full flex items-center justify-center google-btn-primary font-bold py-3.5 px-4 rounded-full active:scale-95 disabled:opacity-50"
           >
             {isSubmitting ? (
               <span className="flex items-center space-x-2">
