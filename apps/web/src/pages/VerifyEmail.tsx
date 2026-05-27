@@ -80,7 +80,7 @@ export const VerifyEmail: React.FC = () => {
     <div className="min-h-[80vh] flex items-center justify-center px-4 relative py-12">
       <div className="absolute w-[400px] h-[400px] bg-primary/10 rounded-full filter blur-[80px] pointer-events-none" />
 
-      <div className="w-full max-w-md bg-bg2 border border-primary/20 rounded-3xl p-8 shadow-glass backdrop-blur-lg animate-fade-in space-y-6 relative z-10 text-center">
+      <div className="w-full max-w-md glass-card rounded-3xl p-8 animate-fade-in space-y-6 relative z-10 text-center">
         
         {/* Header */}
         <div className="space-y-2">
@@ -135,7 +135,7 @@ export const VerifyEmail: React.FC = () => {
           <button
             type="submit"
             disabled={isVerifying}
-            className="w-full flex items-center justify-center bg-gradient-to-r from-primary to-primary-light text-white font-bold py-3 rounded-2xl shadow-glow hover:opacity-95 transition-opacity disabled:opacity-50"
+            className="w-full flex items-center justify-center btn-primary font-bold py-3 rounded-2xl shadow-glow active:scale-[0.98] disabled:opacity-50"
           >
             {isVerifying ? (
               <span className="flex items-center space-x-2">

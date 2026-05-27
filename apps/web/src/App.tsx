@@ -44,9 +44,18 @@ const AdminProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children
 const AppContent: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-bg text-textPrimary relative">
-      {/* Floating Animated Mesh Shapes */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary/10 blur-[120px] pointer-events-none animate-glow-pulse" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-accent/5 blur-[120px] pointer-events-none" />
+      {/* Ambient Mesh Background */}
+      <div className="mesh-bg">
+        <div className="mesh-glow mesh-glow-1"></div>
+        <div className="mesh-glow mesh-glow-2"></div>
+        <div className="mesh-glow mesh-glow-3"></div>
+        
+        {/* Ambient Pulsating Skill Nodes */}
+        <div className="skill-node" style={{ top: '20%', left: '15%', animationDelay: '0.2s' }}></div>
+        <div className="skill-node" style={{ top: '60%', left: '80%', animationDelay: '1.5s' }}></div>
+        <div className="skill-node" style={{ top: '40%', left: '85%', animationDelay: '0.8s' }}></div>
+        <div className="skill-node" style={{ top: '75%', left: '25%', animationDelay: '2.1s' }}></div>
+      </div>
 
       <Navbar />
       

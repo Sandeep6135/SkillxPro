@@ -261,7 +261,7 @@ export const Dashboard: React.FC = () => {
         <div className="lg:col-span-1 space-y-6">
           
           {/* User Widget */}
-          <div className="bg-bg2 border border-primary/15 rounded-3xl p-6 text-center space-y-4 shadow-glass">
+          <div className="glass-card rounded-3xl p-6 text-center space-y-4">
             <div className="relative inline-block">
               <img 
                 src={user?.avatarUrl || `https://api.dicebear.com/7.x/initials/svg?seed=${user?.name}`} 
@@ -294,7 +294,7 @@ export const Dashboard: React.FC = () => {
           </div>
 
           {/* Nav List Menu */}
-          <div className="bg-bg2 border border-primary/15 rounded-3xl p-4 shadow-glass space-y-1">
+          <div className="glass-card rounded-3xl p-4 space-y-1">
             <button
               onClick={() => setTab('marketplace')}
               className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-bold transition-colors ${
@@ -355,7 +355,7 @@ export const Dashboard: React.FC = () => {
             <div className="space-y-6 animate-fade-in">
               
               {/* Filter card */}
-              <div className="bg-bg2 border border-primary/15 rounded-3xl p-6 shadow-glass space-y-4">
+              <div className="glass-card rounded-3xl p-6 space-y-4">
                 <h2 className="text-xl font-black text-textPrimary">Exchange Marketplace</h2>
                 <p className="text-textSecondary text-xs leading-relaxed">
                   Search active skills listed by our community peers. Unlock lessons using your collaborative tokens.
@@ -398,7 +398,7 @@ export const Dashboard: React.FC = () => {
                   filteredSkills.map(skill => (
                     <div 
                       key={skill.id} 
-                      className="bg-bg2 border border-primary/10 rounded-3xl p-6 shadow-glass flex flex-col justify-between hover:border-primary/35 transition-all relative group"
+                      className="glass-card rounded-3xl p-6 flex flex-col justify-between relative group hover:border-accent"
                     >
                       <div className="space-y-4">
                         {/* Tags */}
@@ -448,7 +448,7 @@ export const Dashboard: React.FC = () => {
                     </div>
                   ))
                 ) : (
-                  <div className="col-span-2 bg-bg2 border border-primary/15 rounded-3xl p-10 text-center text-textSecondary space-y-2">
+                  <div className="col-span-2 glass-card rounded-3xl p-10 text-center text-textSecondary space-y-2">
                     <Info className="w-8 h-8 text-primary mx-auto animate-pulse" />
                     <h4 className="font-extrabold text-textPrimary">No skills found matching search criteria</h4>
                     <p className="text-xs max-w-sm mx-auto">Try clearing search values or adjusting the filter buttons.</p>
@@ -464,7 +464,7 @@ export const Dashboard: React.FC = () => {
             <div className="space-y-6 animate-fade-in col-span-1">
               
               {/* Form publishing cards */}
-              <div className="bg-bg2 border border-primary/15 rounded-3xl p-6 shadow-glass space-y-4">
+              <div className="glass-card rounded-3xl p-6 space-y-4">
                 <h2 className="text-xl font-black text-textPrimary flex items-center">
                   <Plus className="w-5 h-5 text-primary mr-2" />
                   Publish a Skill to Teach
@@ -555,7 +555,7 @@ export const Dashboard: React.FC = () => {
               </div>
 
               {/* Class Schedules lists */}
-              <div className="bg-bg2 border border-primary/15 rounded-3xl p-6 shadow-glass space-y-4">
+              <div className="glass-card rounded-3xl p-6 space-y-4">
                 <h3 className="font-extrabold text-textPrimary text-base flex items-center">
                   <Calendar className="w-5 h-5 text-accent mr-2" />
                   Your Scheduled Class Checkpoints
@@ -619,7 +619,7 @@ export const Dashboard: React.FC = () => {
 
           {/* TAB 3: CHAT HUB */}
           {activeTab === 'chat' && (
-            <div className="bg-bg2 border border-primary/15 rounded-3xl overflow-hidden shadow-glass flex flex-col md:flex-row min-h-[550px] animate-fade-in">
+            <div className="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row min-h-[550px] animate-fade-in">
               
               {/* Teachers Inbox Directory */}
               <div className="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-primary/10 p-4 space-y-4">
@@ -726,7 +726,7 @@ export const Dashboard: React.FC = () => {
             <div className="space-y-6 animate-fade-in">
               
               {/* Purchase sandbox widget */}
-              <div className="bg-bg2 border border-primary/15 rounded-3xl p-6 shadow-glass space-y-6">
+              <div className="glass-card rounded-3xl p-6 space-y-6">
                 <h2 className="text-xl font-black text-textPrimary flex items-center">
                   <Coins className="w-5 h-5 text-yellow-400 fill-yellow-400 mr-2" />
                   Token Sandbox Purchase
@@ -770,7 +770,7 @@ export const Dashboard: React.FC = () => {
               </div>
 
               {/* Transactions Ledger log */}
-              <div className="bg-bg2 border border-primary/15 rounded-3xl p-6 shadow-glass space-y-4">
+              <div className="glass-card rounded-3xl p-6 space-y-4">
                 <h3 className="font-extrabold text-textPrimary text-base flex items-center">
                   <LayoutDashboard className="w-5 h-5 text-primary mr-2" />
                   Simulated Transaction Ledger
@@ -811,7 +811,7 @@ export const Dashboard: React.FC = () => {
 
           {/* TAB 5: SETTINGS */}
           {activeTab === 'settings' && (
-            <div className="bg-bg2 border border-primary/15 rounded-3xl p-6 shadow-glass space-y-6 animate-fade-in">
+            <div className="glass-card rounded-3xl p-6 space-y-6 animate-fade-in">
               <div className="space-y-1">
                 <h2 className="text-xl font-black text-textPrimary">Profile Settings</h2>
                 <p className="text-textSecondary text-xs leading-relaxed">
@@ -886,7 +886,7 @@ export const Dashboard: React.FC = () => {
       {/* Class Schedulers Modal Box overlay */}
       {showScheduleModal && (
         <div className="fixed inset-0 bg-bg/85 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="w-full max-w-md bg-bg2 border border-primary/20 rounded-3xl p-6 shadow-glass animate-fade-in relative space-y-4">
+          <div className="w-full max-w-md glass-card rounded-3xl p-6 animate-fade-in relative space-y-4">
             <button 
               onClick={() => setShowScheduleModal(false)}
               className="absolute right-4 top-4 text-textSecondary hover:text-textPrimary font-bold text-xs"

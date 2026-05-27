@@ -20,14 +20,13 @@ export const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-bg/80 backdrop-blur-md border-b border-primary/10 shadow-glass">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2 group">
-              <span className="text-2xl">🎓</span>
-              <span className="text-xl font-black bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
+              <span className="text-xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent group-hover:opacity-90 transition-opacity tracking-tight">
                 SkillxPro
               </span>
             </Link>
@@ -37,8 +36,8 @@ export const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-6">
             <Link 
               to="/" 
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                isActive('/') ? 'text-primary' : 'text-textSecondary'
+              className={`text-sm font-bold transition-all duration-300 hover:text-accent font-label-md ${
+                isActive('/') ? 'text-accent drop-shadow-[0_0_8px_#4edea3]' : 'text-textSecondary'
               }`}
             >
               Home
@@ -48,8 +47,8 @@ export const Navbar: React.FC = () => {
               <>
                 <Link 
                   to="/dashboard" 
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    isActive('/dashboard') ? 'text-primary' : 'text-textSecondary'
+                  className={`text-sm font-bold transition-all duration-300 hover:text-accent font-label-md ${
+                    isActive('/dashboard') ? 'text-accent drop-shadow-[0_0_8px_#4edea3]' : 'text-textSecondary'
                   }`}
                 >
                   Dashboard
@@ -150,15 +149,15 @@ export const Navbar: React.FC = () => {
               <div className="flex items-center space-x-4">
                 <Link 
                   to="/login" 
-                  className="text-sm font-semibold text-textPrimary hover:text-primary transition-colors"
+                  className="text-sm font-semibold text-textPrimary hover:text-accent transition-colors"
                 >
                   Sign In
                 </Link>
                 <Link 
                   to="/login?tab=register" 
-                  className="bg-gradient-to-r from-primary to-primary-light hover:opacity-90 text-white text-sm font-semibold px-5 py-2 rounded-full shadow-glow transition-all"
+                  className="btn-primary hover:opacity-95 text-sm font-bold px-5 py-2.5 rounded-xl shadow-glow active:scale-95 transition-transform"
                 >
-                  Get Started
+                  Initialize Exchange
                 </Link>
               </div>
             )}
