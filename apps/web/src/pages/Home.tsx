@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { ArrowRight, BookOpen, Users, Compass, ShieldCheck, HelpCircle, Star, Sparkles, MessageSquare, Calendar, Shield, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Compass, ShieldCheck, HelpCircle, Star, Sparkles } from 'lucide-react';
 
 export const Home: React.FC = () => {
   const { user, allUsers, skills, schedules } = useAuth();
@@ -60,12 +60,12 @@ export const Home: React.FC = () => {
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-textPrimary">
-            Master New Skills. <br />
-            <span className="text-primary">Zero Capital.</span>
+            Master New Skills <br />
+            <span className="text-primary">via Direct Exchange.</span>
           </h1>
 
           <p className="text-textSecondary text-base sm:text-lg max-w-2xl leading-relaxed">
-            Join the elite command center for high-performance skill acquisition. Trade expertise directly with top-tier creators and developers in a frictionless, Material-powered ecosystem.
+            Join the world's first zero-cost skill economy. Trade your expertise for the knowledge you need, directly with professionals worldwide. No fees, just growth.
           </p>
 
           {/* CTA Buttons */}
@@ -181,89 +181,111 @@ export const Home: React.FC = () => {
 
       {/* Bento Feature Grid Section */}
       <section id="features" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
-        <div className="text-center space-y-4">
-          <h2 className="text-3xl sm:text-5xl font-black text-textPrimary tracking-tight">
-            Google Product-Grade <span className="text-primary">Arsenal</span>
-          </h2>
-          <p className="text-textSecondary text-base sm:text-lg max-w-2xl mx-auto font-medium">
-            Equipped with everything you need to execute high-value, secure skill transfers.
-          </p>
+        <div className="text-center max-w-2xl mx-auto mb-8">
+          <h2 className="font-headline-md text-headline-md text-on-surface mb-2">Designed for High-Performance Learning</h2>
+          <p className="font-body-md text-body-md text-on-surface-variant">Everything you need to manage your skill portfolio in one seamless environment.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[250px]">
           
-          {/* Zero Cost Exchanges (Large Card, Light Blue overlay) */}
-          <div className="google-card google-card-hover rounded-3xl p-8 md:col-span-2 relative overflow-hidden group flex flex-col justify-between">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full pointer-events-none" />
-            <div className="w-12 h-12 rounded-2xl google-badge-blue flex items-center justify-center font-bold">
-              <Sparkles className="w-6 h-6" />
+          {/* Zero Cost Exchanges (Large) */}
+          <div className="bento-card md:col-span-8 p-8 flex flex-col justify-between relative overflow-hidden group">
+            <div className="relative z-10">
+              <span className="material-symbols-outlined text-primary text-4xl mb-4 p-3 bg-surface-container-lowest rounded-xl shadow-sm inline-block">handshake</span>
+              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-2">Zero Cost Exchanges</h3>
+              <p className="font-body-md text-body-md text-on-surface-variant max-w-lg">Access premium knowledge without the premium price tag. Our pure barter system ensures equitable value exchange based on time and expertise.</p>
             </div>
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-primary rounded-full opacity-5 blur-2xl group-hover:scale-110 transition-transform duration-700"></div>
+          </div>
+
+          {/* Dynamic Ledgers */}
+          <div className="bento-card md:col-span-4 p-6 flex flex-col justify-between border-t-4 border-accent">
+            <div>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-title-lg text-title-lg text-on-surface">Dynamic Ledgers</h3>
+                <span className="material-symbols-outlined text-accent">receipt_long</span>
+              </div>
+              <p className="font-body-md text-body-md text-on-surface-variant text-sm mb-4">Track every hour given and received with immutable precision.</p>
+            </div>
+            {/* Mock transactions mini */}
             <div className="space-y-2">
-              <h3 className="text-xl sm:text-2xl font-black text-textPrimary group-hover:text-primary transition-colors flex items-center gap-2">
-                <span>Zero Cost Exchanges</span>
-                <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </h3>
-              <p className="text-textSecondary text-sm sm:text-base max-w-xl leading-relaxed">
-                Trade your expertise directly. No fiat required. Just pure intellectual capital exchanged at market value using standard tokens.
-              </p>
+              <div className="flex items-center justify-between p-2 bg-surface-container-low rounded-xl">
+                <span className="font-label-md text-label-md text-on-surface">+2 Hrs (Python)</span>
+                <span className="material-symbols-outlined text-accent text-sm">arrow_upward</span>
+              </div>
+              <div className="flex items-center justify-between p-2 bg-surface-container-low rounded-xl">
+                <span className="font-label-md text-label-md text-on-surface">-1 Hr (Figma)</span>
+                <span className="material-symbols-outlined text-danger text-sm">arrow_downward</span>
+              </div>
             </div>
           </div>
 
-          {/* Dynamic Ledgers (Google Green overlay) */}
-          <div className="google-card google-card-hover rounded-3xl p-8 relative overflow-hidden group flex flex-col justify-between">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-full pointer-events-none" />
-            <div className="w-12 h-12 rounded-2xl google-badge-green flex items-center justify-center font-bold">
-              <BookOpen className="w-5 h-5" />
+          {/* Schedules */}
+          <div className="bento-card md:col-span-4 p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-title-lg text-title-lg text-on-surface">Schedules</h3>
+                <span className="material-symbols-outlined text-primary">calendar_month</span>
+              </div>
+              <p className="font-body-md text-body-md text-on-surface-variant text-sm">Automated time-zone alignment.</p>
             </div>
-            <div className="space-y-2">
-              <h3 className="text-lg sm:text-xl font-black text-textPrimary group-hover:text-accent-dark transition-colors">Dynamic Ledgers</h3>
-              <p className="text-textSecondary text-xs leading-relaxed">
-                Track your skill equity in real-time on our immutable ledger. See exactly where your balances go.
-              </p>
-            </div>
-          </div>
-
-          {/* Schedules (Google Blue overlay) */}
-          <div className="google-card google-card-hover rounded-3xl p-8 relative overflow-hidden group flex flex-col justify-between">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full pointer-events-none" />
-            <div className="w-12 h-12 rounded-2xl google-badge-blue flex items-center justify-center font-bold">
-              <Calendar className="w-5 h-5" />
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-lg sm:text-xl font-black text-textPrimary group-hover:text-primary transition-colors">Schedules</h3>
-              <p className="text-textSecondary text-xs leading-relaxed">
-                Frictionless meeting coordination interfaces. Schedule dates, define duration times, and track lessons.
-              </p>
-            </div>
-          </div>
-
-          {/* Encrypted Comms (Google Yellow overlay) */}
-          <div className="google-card google-card-hover rounded-3xl p-8 relative overflow-hidden group flex flex-col justify-between">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-warning/5 rounded-bl-full pointer-events-none" />
-            <div className="w-12 h-12 rounded-2xl google-badge-yellow flex items-center justify-center font-bold">
-              <MessageSquare className="w-5 h-5" />
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-lg sm:text-xl font-black text-textPrimary group-hover:text-warning-dark transition-colors">Encrypted Comms</h3>
-              <p className="text-textSecondary text-xs leading-relaxed">
-                Secure, low-latency direct chat inboxes. Message educators directly, swap codes, and negotiate course details.
-              </p>
+            <div className="grid grid-cols-7 gap-1 mt-4">
+              <div className="aspect-square bg-surface-container rounded-lg text-center text-[10px] text-outline flex items-center justify-center">M</div>
+              <div className="aspect-square bg-surface-container rounded-lg text-center text-[10px] text-outline flex items-center justify-center">T</div>
+              <div className="aspect-square bg-surface-container rounded-lg text-center text-[10px] text-outline flex items-center justify-center">W</div>
+              <div className="aspect-square bg-surface-container rounded-lg text-center text-[10px] text-outline flex items-center justify-center">T</div>
+              <div className="aspect-square bg-surface-container rounded-lg text-center text-[10px] text-outline flex items-center justify-center">F</div>
+              <div className="aspect-square bg-surface-container rounded-lg text-center text-[10px] text-outline flex items-center justify-center">S</div>
+              <div className="aspect-square bg-surface-container rounded-lg text-center text-[10px] text-outline flex items-center justify-center">S</div>
+              <div className="aspect-square bg-surface-container-low rounded-lg"></div>
+              <div className="aspect-square bg-surface-container-low rounded-lg"></div>
+              <div className="aspect-square bg-primary text-white rounded-lg flex items-center justify-center font-bold text-xs shadow-sm">14</div>
+              <div className="aspect-square bg-surface-container-low rounded-lg"></div>
+              <div className="aspect-square bg-surface-container-low rounded-lg"></div>
+              <div className="aspect-square bg-accent text-white rounded-lg flex items-center justify-center font-bold text-xs shadow-sm">17</div>
+              <div className="aspect-square bg-surface-container-low rounded-lg"></div>
             </div>
           </div>
 
-          {/* Command Deck (Google Red overlay) */}
-          <div className="google-card google-card-hover rounded-3xl p-8 relative overflow-hidden group flex flex-col justify-between">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-danger/5 rounded-bl-full pointer-events-none" />
-            <div className="w-12 h-12 rounded-2xl google-badge-red flex items-center justify-center font-bold">
-              <Shield className="w-5 h-5" />
+          {/* Encrypted Comms */}
+          <div className="bento-card md:col-span-4 p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-title-lg text-title-lg text-on-surface">Encrypted Comms</h3>
+                <span className="material-symbols-outlined text-warning-dark">shield_lock</span>
+              </div>
+              <p className="font-body-md text-body-md text-on-surface-variant text-sm">End-to-end encrypted messaging and video infrastructure.</p>
             </div>
-            <div className="space-y-2">
-              <h3 className="text-lg sm:text-xl font-black text-textPrimary group-hover:text-danger transition-colors">Command Deck</h3>
-              <p className="text-textSecondary text-xs leading-relaxed">
-                Full administrative oversight. Regulate platform-wide parameters, user status suspension toggles, and token reward mints.
-              </p>
+            <div className="flex items-center gap-3 p-3 bg-surface-container-low rounded-xl border border-outline-variant">
+              <div className="w-8 h-8 rounded-full bg-warning/20 text-warning-dark flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-sm">lock</span>
+              </div>
+              <div className="flex-grow">
+                <div className="h-2 bg-outline-variant rounded-lg w-3/4 mb-2"></div>
+                <div className="h-2 bg-outline-variant rounded-lg w-1/2"></div>
+              </div>
             </div>
           </div>
+
+          {/* Command Deck */}
+          <div className="bento-card md:col-span-4 p-6 flex flex-col justify-between border-t-4 border-danger">
+            <div>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-title-lg text-title-lg text-on-surface">Command Deck</h3>
+                <span className="material-symbols-outlined text-danger">dashboard</span>
+              </div>
+              <p className="font-body-md text-body-md text-on-surface-variant text-sm">Your centralized hub for active requests, matching analytics, and portfolio management.</p>
+            </div>
+            <div className="flex gap-2">
+              <div className="h-12 flex-1 bg-surface-container rounded-lg border border-outline-variant flex items-center justify-center">
+                <span className="material-symbols-outlined text-textSecondary">bar_chart</span>
+              </div>
+              <div className="h-12 flex-1 bg-surface-container rounded-lg border border-outline-variant flex items-center justify-center">
+                <span className="material-symbols-outlined text-textSecondary">pie_chart</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
