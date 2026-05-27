@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillxPro SuperAdmin Command Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#6ddd81",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#410001",
+                      "outline-variant": "#c2c6d5",
+                      "on-secondary-container": "#00722f",
+                      "on-secondary-fixed-variant": "#005320",
+                      "inverse-primary": "#adc6ff",
+                      "tertiary-container": "#d9372b",
+                      "inverse-surface": "#2e3132",
+                      "inverse-on-surface": "#eff1f2",
+                      "on-primary-fixed-variant": "#004494",
+                      "on-primary-fixed": "#001a41",
+                      "on-tertiary": "#ffffff",
+                      "tertiary": "#b51b15",
+                      "background": "#f8fafb",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#0058bd",
+                      "primary-fixed": "#d8e2ff",
+                      "on-tertiary-fixed-variant": "#930004",
+                      "tertiary-fixed-dim": "#ffb4a9",
+                      "surface-tint": "#005ac1",
+                      "surface-container-high": "#e6e8e9",
+                      "surface-dim": "#d8dadb",
+                      "on-surface": "#191c1d",
+                      "on-secondary-fixed": "#002108",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#adc6ff",
+                      "surface-variant": "#e1e3e4",
+                      "tertiary-fixed": "#ffdad5",
+                      "secondary-container": "#86f898",
+                      "on-surface-variant": "#424753",
+                      "on-primary-container": "#fefcff",
+                      "outline": "#727785",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#2771df",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#eceeef",
+                      "secondary": "#006e2c",
+                      "surface-container-highest": "#e1e3e4",
+                      "surface": "#f8fafb",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#89fa9b",
+                      "surface-container-low": "#f2f4f5",
+                      "surface-bright": "#f8fafb",
+                      "on-tertiary-container": "#fffbff",
+                      "on-background": "#191c1d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "32px",
+                      "container-padding": "24px",
+                      "base": "8px",
+                      "gutter": "16px",
+                      "bento-gap": "24px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Outfit"],
+                      "body-md": ["Outfit"],
+                      "headline-md": ["Outfit"],
+                      "label-sm": ["Outfit"],
+                      "title-md": ["Outfit"],
+                      "headline-lg-mobile": ["Outfit"],
+                      "headline-lg": ["Outfit"],
+                      "label-lg": ["Outfit"],
+                      "body-lg": ["Outfit"],
+                      "title-lg": ["Outfit"]
+              },
+              "fontSize": {
+                      "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                      "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "500"}],
+                      "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                      "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "label-lg": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                      "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { background-color: #F1F3F4; }
+        .bento-card {
+            background-color: #FFFFFF;
+            border-radius: 24px;
+            padding: 24px;
+            border: 1px solid #DADCE0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .status-active { background-color: rgba(52, 168, 83, 0.1); color: #34A853; }
+        .status-suspended { background-color: rgba(234, 67, 53, 0.1); color: #EA4335; }
+        
+        /* Custom Toggle */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #4285F4;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #4285F4;
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+        .toggle-label {
+            width: 44px;
+            height: 24px;
+            background-color: #DADCE0;
+            border-radius: 9999px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .toggle-label:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex bg-surface dark:bg-surface-dim fixed left-0 top-0 h-screen w-64 z-50 border-r border-outline-variant dark:border-outline-variant flex-col py-6 gap-2">
+<div class="px-6 mb-8">
+<h1 class="font-display-lg text-display-lg font-black text-primary dark:text-primary-fixed-dim tracking-tighter">SkillxPro</h1>
+<p class="font-label-lg text-label-lg text-on-surface-variant mt-1">SuperAdmin Console</p>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-on-surface px-4 py-3 mx-2 hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-full transition-all focus:ring-2 focus:ring-primary focus:ring-inset font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-on-surface px-4 py-3 mx-2 hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-full transition-all focus:ring-2 focus:ring-primary focus:ring-inset font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span>
+                User Management
+            </a>
+<a class="flex items-center gap-4 bg-primary-container text-on-primary-container rounded-full px-4 py-3 mx-2 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all focus:ring-2 focus:ring-primary focus:ring-inset font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+                Token Economics
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-on-surface px-4 py-3 mx-2 hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-full transition-all focus:ring-2 focus:ring-primary focus:ring-inset font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">psychology</span>
+                Skills Directory
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-on-surface px-4 py-3 mx-2 hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-full transition-all focus:ring-2 focus:ring-primary focus:ring-inset font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+                System Settings
+            </a>
+</div>
+<div class="px-6 mt-auto">
+<div class="flex items-center gap-3 py-3 border-t border-outline-variant">
+<img alt="SkillxPro Logo" class="w-10 h-10 rounded-full" data-alt="A professional headshot of a corporate administrator in a modern, light-mode setting. The lighting is crisp and even, highlighting a serious but approachable expression. The background is a soft, blurred white office space. High-end photography style, suitable for a sophisticated enterprise dashboard avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKyCCmeujRRD0Y0nx2u9-pec5OKpnp5h4YdcKUg9npzIRdUUdJKE38yE5Oi6daZDzIlH4uRuoGm0tSbJWErZcYDJvoJ6-oG3w--pqCzbzAwA0Q8lF5mMHnytejiuDc34nXV0xEso18JBGgzz5azmCPMkPiSYPcLXAOW3nT99S6juSOGfyRn1ZSkyLZm4xQePsS0LhC2sytMFc3M9hBWPi5M62wIKRDvl4KQQk-6m2cuyy7wTEmoB-G7zEFwIz8YZzq-hEVIdXmKQ"/>
+<div>
+<p class="font-label-lg text-label-lg font-bold text-on-surface">Admin User</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">System Root</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width top-0 sticky z-40 border-b border-outline-variant dark:border-outline-variant shadow-sm flex justify-between items-center w-full px-margin-desktop h-16">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Button (Hidden on Desktop) -->
+<button class="md:hidden text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-headline-lg text-headline-lg text-on-surface md:hidden">SkillxPro</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors duration-200 opacity-80 hover:opacity-100 hover:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors duration-200 opacity-80 hover:opacity-100 hover:scale-95">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop">
+<div class="max-w-[1600px] mx-auto">
+<div class="mb-8">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Token Economics Console</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage systemic token flow, monitor distributions, and configure core economic parameters.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-bento-gap">
+<!-- 1. Circulating Token Economics (Spans 8 columns) -->
+<div class="bento-card md:col-span-8 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-title-lg text-title-lg text-on-surface">Circulating Token Flow</h2>
+<button class="text-primary hover:bg-surface-container-high px-3 py-1.5 rounded-lg flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="font-label-lg text-label-lg">Export Data</span>
+</button>
+</div>
+<!-- Pseudo Chart Area -->
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant rounded-xl flex items-end justify-between p-4 relative min-h-[300px]" style="background-image: linear-gradient(to right, #f8fafb 1px, transparent 1px), linear-gradient(to bottom, #f8fafb 1px, transparent 1px); background-size: 40px 40px;">
+<!-- Trend Line (SVG embedded for visual effect without data URI) -->
+<svg class="absolute inset-0 w-full h-full p-4 pointer-events-none" preserveaspectratio="none">
+<path d="M 0,250 C 100,220 200,280 300,180 C 400,80 500,120 600,60 C 700,0 800,90 900,40" fill="none" stroke="#4285F4" stroke-linecap="round" stroke-width="3"></path>
+<path d="M 0,250 C 100,220 200,280 300,180 C 400,80 500,120 600,60 C 700,0 800,90 900,40 L 900,300 L 0,300 Z" fill="url(#blue-gradient)" opacity="0.1"></path>
+<defs>
+<lineargradient id="blue-gradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#4285F4"></stop>
+<stop offset="100%" stop-color="#4285F4" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Data Points -->
+<div class="w-3 h-3 rounded-full bg-white border-2 border-[#4285F4] absolute z-10" style="bottom: 250px; left: 0%;"></div>
+<div class="w-3 h-3 rounded-full bg-white border-2 border-[#4285F4] absolute z-10" style="bottom: 180px; left: 33%;"></div>
+<div class="w-3 h-3 rounded-full bg-white border-2 border-[#4285F4] absolute z-10" style="bottom: 60px; left: 66%;"></div>
+<div class="w-3 h-3 rounded-full bg-[#4285F4] border-2 border-white absolute z-10 shadow-md" style="bottom: 40px; left: 99%;">
+<div class="absolute -top-10 -left-10 bg-[#191c1d] text-white px-3 py-1 rounded-md font-label-sm text-label-sm whitespace-nowrap">Current: 2.4M SKX</div>
+</div>
+</div>
+<!-- Metrics Row -->
+<div class="grid grid-cols-3 gap-4 mt-6">
+<div class="p-4 bg-surface-container rounded-xl">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Total Supply</p>
+<p class="font-headline-md text-headline-md text-on-surface">100.0M</p>
+</div>
+<div class="p-4 bg-surface-container rounded-xl">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Circulating</p>
+<p class="font-headline-md text-headline-md text-primary">24.5M</p>
+</div>
+<div class="p-4 bg-surface-container rounded-xl">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Burn Rate</p>
+<p class="font-headline-md text-headline-md text-on-surface">1.2% <span class="text-[#EA4335] text-sm align-middle"><span class="material-symbols-outlined text-sm">trending_down</span></span></p>
+</div>
+</div>
+</div>
+<!-- 2. Token Distribution (Spans 4 columns) -->
+<div class="bento-card md:col-span-4 flex flex-col">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-6">Manual Distribution</h2>
+<form class="flex-1 flex flex-col gap-5">
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2">Recipient Wallet Address</label>
+<input class="w-full bg-transparent border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-[#4285F4] focus:ring-1 focus:ring-[#4285F4] transition-all font-body-md text-body-md placeholder:text-outline" placeholder="0x..." type="text"/>
+</div>
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2">Amount (SKX)</label>
+<div class="relative">
+<input class="w-full bg-transparent border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-[#4285F4] focus:ring-1 focus:ring-[#4285F4] transition-all font-body-md text-body-md" type="number" value="0.00"/>
+<span class="absolute right-4 top-3 text-outline font-label-lg text-label-lg">SKX</span>
+</div>
+</div>
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface-variant mb-2">Distribution Reason</label>
+<select class="w-full bg-transparent border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-[#4285F4] focus:ring-1 focus:ring-[#4285F4] transition-all font-body-md text-body-md appearance-none">
+<option>Ecosystem Grant</option>
+<option>Liquidity Provision</option>
+<option>Team Vesting</option>
+<option>Community Reward</option>
+</select>
+</div>
+<div class="mt-auto pt-6">
+<button class="w-full bg-[#4285F4] hover:bg-primary-container text-white font-label-lg text-label-lg py-3 px-4 rounded-lg transition-colors flex justify-center items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm">send</span>
+                                    Execute Transfer
+                                </button>
+<p class="text-center font-label-sm text-label-sm text-outline mt-3">Requires Multi-Sig Approval</p>
+</div>
+</form>
+</div>
+<!-- 3. User Directory Mini-View (Spans 6 columns) -->
+<div class="bento-card md:col-span-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-title-lg text-title-lg text-on-surface">Top Holders Directory</h2>
+<button class="text-primary hover:bg-surface-container-high p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#F8F9FA] border-b border-[#F1F3F4]">
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">USER / WALLET</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">BALANCE</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">STATUS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-[#F1F3F4] hover:bg-surface-container-lowest transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container text-primary flex items-center justify-center font-label-lg text-label-lg">A</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Alpha Fund</p>
+<p class="font-label-sm text-label-sm text-outline">0x71C...34F1</p>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-body-md text-body-md text-on-surface">1,250,000 SKX</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm status-active">
+                                                Active
+                                            </span>
+</td>
+</tr>
+<tr class="border-b border-[#F1F3F4] hover:bg-surface-container-lowest transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-lg text-label-lg">B</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Beta Liquidity</p>
+<p class="font-label-sm text-label-sm text-outline">0x88D...99A2</p>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-body-md text-body-md text-on-surface">850,000 SKX</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm status-active">
+                                                Active
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container text-error flex items-center justify-center font-label-lg text-label-lg">X</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Unknown Entity</p>
+<p class="font-label-sm text-label-sm text-outline">0x11A...00F4</p>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-body-md text-body-md text-on-surface">420,000 SKX</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm status-suspended">
+                                                Suspended
+                                            </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 4 & 5 Stacked (Spans 6 columns) -->
+<div class="md:col-span-6 flex flex-col gap-bento-gap">
+<!-- Skills Directory Mini -->
+<div class="bento-card flex-1">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-title-lg text-title-lg text-on-surface">Monetized Skills</h2>
+<button class="text-primary text-sm font-label-lg text-label-lg hover:underline">View All</button>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="bg-surface-container-low border border-outline-variant px-3 py-1.5 rounded-lg flex items-center gap-2 group">
+<span class="font-body-md text-body-md text-on-surface">Smart Contract Auditing</span>
+<button class="text-outline hover:text-error opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="bg-surface-container-low border border-outline-variant px-3 py-1.5 rounded-lg flex items-center gap-2 group">
+<span class="font-body-md text-body-md text-on-surface">UI/UX Architecture</span>
+<button class="text-outline hover:text-error opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="bg-surface-container-low border border-outline-variant px-3 py-1.5 rounded-lg flex items-center gap-2 group">
+<span class="font-body-md text-body-md text-on-surface">Solidity Development</span>
+<button class="text-outline hover:text-error opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<button class="border border-dashed border-primary text-primary px-3 py-1.5 rounded-lg flex items-center gap-1 hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="font-label-lg text-label-lg">Add Skill</span>
+</button>
+</div>
+</div>
+<!-- System Configuration -->
+<div class="bento-card flex-1">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-4">System Parameters</h2>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between py-2 border-b border-[#F1F3F4]">
+<div>
+<p class="font-title-md text-title-md text-on-surface">Auto-burn Mechanism</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Automatically burn 1% of transaction fees.</p>
+</div>
+<label class="flex items-center cursor-pointer">
+<input checked="" class="sr-only toggle-checkbox" type="checkbox"/>
+<div class="toggle-label"></div>
+</label>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-[#F1F3F4]">
+<div>
+<p class="font-title-md text-title-md text-on-surface">Public Directory Visbility</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Allow non-registered users to view skills.</p>
+</div>
+<label class="flex items-center cursor-pointer">
+<input checked="" class="sr-only toggle-checkbox" type="checkbox"/>
+<div class="toggle-label"></div>
+</label>
+</div>
+<div class="flex items-center justify-between py-2">
+<div>
+<p class="font-title-md text-title-md text-on-surface">Emergency Pause</p>
+<p class="font-body-md text-body-md text-error text-sm">Halt all token transfers immediately.</p>
+</div>
+<label class="flex items-center cursor-pointer">
+<input class="sr-only toggle-checkbox" type="checkbox"/>
+<div class="toggle-label bg-[#DADCE0]"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
