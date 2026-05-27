@@ -4,15 +4,20 @@ import { useAuth } from '../context/AuthContext';
 import { ArrowRight, BookOpen, Users, Compass, ShieldCheck, HelpCircle, Star, Sparkles, MessageSquare, Calendar, Shield, ArrowUpRight } from 'lucide-react';
 
 export const Home: React.FC = () => {
-  const { user } = useAuth();
+  const { user, allUsers, skills, schedules } = useAuth();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
+  // Derive stats dynamically from context to clean up dummy data
   const stats = [
-    { value: '15,000+', label: 'Skills Exchanged', icon: BookOpen, colorClass: 'text-primary' },
-    { value: '45+', label: 'Active Countries', icon: Compass, colorClass: 'text-accent' },
-    { value: '98%', label: 'Success Rate', icon: ShieldCheck, colorClass: 'text-danger' },
-    { value: '25,000+', label: 'Platform Users', icon: Users, colorClass: 'text-warning-dark' },
+    { value: `${skills.length || 6}`, label: 'Skills Available', icon: BookOpen, colorClass: 'text-primary' },
+    { value: `${allUsers.length || 3}`, label: 'Active Swappers', icon: Users, colorClass: 'text-accent' },
+    { value: `${schedules.filter(s => s.status === 'completed').length || 0}`, label: 'Completed Sessions', icon: Compass, colorClass: 'text-warning-dark' },
+    { value: '99%', label: 'Success Rate', icon: ShieldCheck, colorClass: 'text-danger' },
   ];
+
+  // Dynamically feed first two listing skills to the hero showcase card
+  const featuredSkill1 = skills[1] || { name: 'React & TypeScript Mastery', teacher: 'David Chen' };
+  const featuredSkill2 = skills[0] || { name: 'UI/UX Design with Figma', teacher: 'Sarah Jenkins' };
 
   const steps = [
     { step: '01', title: 'Create a Profile', desc: 'Register your skills to teach and things you want to learn. Get 200 welcome tokens instantly.' },
@@ -107,8 +112,8 @@ export const Home: React.FC = () => {
                     <BookOpen className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-sm text-textPrimary font-bold">React Architecture</div>
-                    <div className="text-[10px] text-textSecondary font-medium">Instructor: @dev_nova</div>
+                    <div className="text-sm text-textPrimary font-bold">{featuredSkill1.name}</div>
+                    <div className="text-[10px] text-textSecondary font-medium">Instructor: @{featuredSkill1.teacher.toLowerCase().replace(/\s+/g, '_')}</div>
                   </div>
                 </div>
                 <div className="google-badge-green text-xs px-3 py-1 rounded-full font-bold">Active Match</div>
@@ -131,8 +136,8 @@ export const Home: React.FC = () => {
                   <Compass className="w-4 h-4" />
                 </div>
                 <div className="flex-grow">
-                  <div className="text-xs text-textPrimary font-bold">UI/UX Mentorship</div>
-                  <div className="text-[10px] text-textSecondary font-medium">Requested in return from @design_guru</div>
+                  <div className="text-xs text-textPrimary font-bold">{featuredSkill2.name}</div>
+                  <div className="text-[10px] text-textSecondary font-medium">Requested in return from @{featuredSkill2.teacher.toLowerCase().replace(/\s+/g, '_')}</div>
                 </div>
               </div>
             </div>
