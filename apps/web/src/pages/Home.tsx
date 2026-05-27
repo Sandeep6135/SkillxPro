@@ -62,9 +62,16 @@ export const Home: React.FC = () => {
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 z-10">
           
           {/* Google styled micro badge */}
-          <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 rounded-full px-4.5 py-1.5 text-xs sm:text-sm text-primary font-bold shadow-sm">
-            <Sparkles className="w-4 h-4 text-warning-dark" />
-            <span>Next-Gen Peer-to-Peer Exchange</span>
+          <div className="inline-flex items-center space-x-3 bg-white/80 hover:bg-white border border-slate-200/80 backdrop-blur-md rounded-full pl-2.5 pr-4 py-1.5 text-xs sm:text-sm font-bold shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 select-none">
+            <span className="bg-gradient-to-r from-primary to-accent text-white text-[9px] uppercase tracking-wider font-black px-2.5 py-1 rounded-full shadow-sm animate-pulse shrink-0">
+              NEW
+            </span>
+            <div className="flex items-center space-x-1.5">
+              <Sparkles className="w-4 h-4 text-warning-dark shrink-0 animate-spin-slow" />
+              <span className="bg-gradient-to-r from-textPrimary via-primary to-accent bg-clip-text text-transparent tracking-wide font-black">
+                Next-Gen Peer-to-Peer Exchange
+              </span>
+            </div>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-textPrimary">
