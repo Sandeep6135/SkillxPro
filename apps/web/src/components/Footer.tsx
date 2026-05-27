@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
             <h3 className="text-sm font-semibold text-textPrimary tracking-wider uppercase mb-4">Community</h3>
             <ul className="space-y-2 text-sm text-textSecondary">
               <li>
-                <a href="https://github.com/Sandeep6135/SkillxPro" target="_blank" rel="noreferrer" className="hover:text-textPrimary transition-colors flex items-center">
+                <a href="https://github.com/sahil4love/SkillxPro" target="_blank" rel="noreferrer" className="hover:text-textPrimary transition-colors flex items-center">
                   <Github className="w-3.5 h-3.5 mr-1" />
                   GitHub Repository
                 </a>

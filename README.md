@@ -1,101 +1,101 @@
-# 🎓 SkillxPro — Borderless Peer-to-Peer Skill Exchange Network
+# 🎓 SkillxPro — Next-Gen Peer-to-Peer Knowledge Exchange Network
 
-SkillxPro is a borderless, decentralized learning ecosystem designed to facilitate direct peer-to-peer knowledge transfers. Traditional currency is replaced by **Knowledge Tokens**, fostering a collaborative economy where anyone can be a student today and an expert educator tomorrow.
+<div align="center">
 
-Built as a high-fidelity Single Page Application using **React 18 + TypeScript + Tailwind CSS**, the platform integrates rich visual aesthetics, a fully persistent client-side database, and a supercharged administrator terminal.
+[![GSSoC 2026](https://img.shields.io/badge/GSSoC-2026-brightgreen?style=for-the-badge&logo=github)](https://gssoc.girlscript.tech/)
+[![Open Source Love](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red?style=for-the-badge)](#)
+[![Vite Build](https://img.shields.io/badge/Vite-Build%20Passing-blue?style=for-the-badge&logo=vite)](#)
+[![Tech Stack](https://img.shields.io/badge/React%2018-TypeScript%20%2B%20Tailwind-blue?style=for-the-badge&logo=react)](https://react.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+
+**SkillxPro** is a premium, borderless peer-to-peer LMS and knowledge barter network. It completely eliminates traditional currency, replacing it with **Knowledge Tokens** to foster a self-sustaining peer learning ecosystem where you can be a passionate student today and an expert mentor tomorrow.
+
+[Explore Codebase](#-architecture-overview) • [Quick Setup](#-local-development-guide) • [Contributing Guidelines](CONTRIBUTING.md)
+
+</div>
 
 ---
 
-## ⚡ Core Philosophy & Mechanics
+## ⚡ Why SkillxPro? (Core Philosophy & Mechanics)
 
-Traditional education systems place teaching and learning in separate silos. SkillxPro bridges this gap using a self-sustaining collaborative ledger:
+In traditional systems, education is locked behind high financial barriers. **SkillxPro** bridges this gap using a local, stateful, and decentralized peer ledger:
 
-*   **The Equalizer Bonus:** Every new profile is credited with `200 Knowledge Tokens` to jumpstart their learning journey.
-*   **Knowledge Liquidity:** Host sessions in your areas of strength to earn tokens directly from peers.
-*   **Limitless Growth:** Reinvest your earned balance to enroll in expert classes spanning technology, marketing, design, and business.
-*   **True Sandbox Isolation:** The entire application operates inside a persistent `localStorage` database. Enjoy a stateful direct messaging inbox, a transaction ledger, class completion controls, and superadmin configuration overrides without needing to configure complex external backends.
+*   **🎓 Equalizer Credit:** Every newly registered user receives a welcome bonus of `200 Knowledge Tokens` to immediately kickstart their learning.
+*   **💡 Knowledge Liquidity:** Host high-quality virtual classes to earn tokens directly from your peers, expanding your personal wallet.
+*   **🚀 Limitless Reinvestment:** Spend your earned ledger tokens to unlock masterclasses in coding, visual design, public speaking, or marketing.
+*   **🛡️ Pure Sandbox Isolation:** SkillxPro works entirely inside an active React `localStorage` database. Enjoy a stateful messaging chat hub, responsive class completion managers, and administrator dashboard controls out of the box with zero external configuration!
+
+---
+
+## ✨ Interface Highlights (Google Developers Material 3 Theme)
+
+The interface has been redesigned to reflect a premium, state-of-the-art **Google Developers M3** design aesthetic:
+
+*   **🎨 Premium HSL Palette:** Tailored brand colors (Hex `#4285F4`, `#34A853`, `#FBBC04`, `#EA4335`) combined with high-contrast neutral backgrounds.
+*   **🔄 Animated 3D Flip Card:** A dynamic showcase card in the hero container that flips smoothly every 4 seconds to alternate between live network metrics with zero layout shifts.
+*   **🌟 Polished Glassmorphic Pill:** An ultra-premium announcement badge featuring a pulsing gradient `NEW` tag and a slowly rotating sparkles icon.
+*   **📱 12-Column Responsive Bento Grid:** Structured feature deck utilizing custom shadow elevations, interactive borders, and smooth transform scaling.
+*   **💎 Custom Material Icons**: Clean, sharp ligatures powered by the official Google Material Symbols library.
 
 ---
 
 ## 📁 Architecture Overview
 
-SkillxPro is organized as a neat workspace monorepo:
+SkillxPro is structured as an organized monorepo workspace for maximum clarity:
 
 ```
 SkillxPro/
-├── .github/                 # Git issue forms & validation templates
+├── .github/                 # Git issue templates & validation schemas
 ├── apps/
-│   └── web/                 # Main React + TS + Tailwind SPA (Vite Dev Server)
+│   └── web/                 # React 18 + TS + Tailwind Client Application (Vite)
 │       ├── src/
-│       │   ├── components/  # Core shared elements (Navbar, Footer, Glass cards)
-│       │   ├── context/     # Auth system & reactive localStorage ledger engine
+│       │   ├── components/  # Shared layouts (Pill Navbars, Footers, Bento Cards)
+│       │   ├── context/     # AuthContext & reactive localStorage ledger core
 │       │   ├── pages/       # Responsive views (Home, Login, Dashboard, Admin)
-│       │   ├── types.ts     # Rigid typescript interfaces
+│       │   ├── types.ts     # Strict TypeScript type models
 │       │   └── main.tsx     # SPA entry point
-├── CONTRIBUTING.md          # Guidelines for open-source participation
-├── ROADMAP.md               # Feature backlog & complexity guides
-└── LICENSE                  # MIT License
+├── CONTRIBUTING.md          # Guidelines for GSSoC contributors
+├── ROADMAP.md               # Feature backlog & task complexity lists
+└── LICENSE                  # MIT License Open Source
 ```
-
----
-
-## ✨ Platform Highlights
-
-### 1. 🛡️ Secure Reactive Authentication (`AuthContext.tsx`)
-*   Passwordless email verification link simulation and SMS login paths.
-*   Intelligent profile generation with custom avatars and tags stored reactively.
-*   Strict session preservation on page reloads.
-
-### 2. 💬 Stateful Direct Message Hub (`Dashboard.tsx`)
-*   Persistent inbox allowing learners to message teachers directly.
-*   Interactive sidebar directory with active conversation tracking.
-*   Schedule-request integration to request custom classes and sync timings.
-
-### 3. 🛍️ Fluid Course Marketplace (`Dashboard.tsx`)
-*   Instantly query courses using title, tag, or educator search criteria.
-*   Sleek category filters with interactive border glowing.
-*   Automated balance verification to prevent double-spending or enrollment on insufficient funds.
-
-### 4. 🎛️ Command-Center SuperAdmin Deck (`Admin.tsx`)
-*   Platform-wide analytics (circulating tokens, registration counts, active courses).
-*   Live controls to suspend accounts, distribute token rewards, or add new skills.
-*   Configuration toggles for maintenance mode, registration locks, and mock transaction fees.
 
 ---
 
 ## 🚀 Local Development Guide
 
+Get your own local development instance of SkillxPro running in minutes:
+
 ### Prerequisites
 *   **Node.js** (v18.0.0 or higher)
 *   **npm** (or yarn)
 
-### Quick Setup
+### Step-by-Step Installation
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/Sandeep6135/SkillxPro.git
+    git clone https://github.com/sahil4love/SkillxPro.git
     cd SkillxPro
     ```
 
-2.  **Install Workspace Dependencies**
+2.  **Navigate to the Client Workspace & Install Dependencies**
     ```bash
     cd apps/web
     npm install
     ```
 
-3.  **Launch Dev Server**
+3.  **Launch the Hot-Reloaded Dev Server**
     ```bash
     npm run dev
     ```
-    *Access your local copy at [http://localhost:3000](http://localhost:3000)*
+    *Open your browser and navigate to [http://localhost:3000](http://localhost:3000)*
 
-4.  **Validate Build Correctness**
+4.  **Confirm Build Pass Rules**
     ```bash
     npm run build
     ```
 
 ---
 
-## 📄 License
+## 🤝 Contribution Guidelines (GSSoC 2026)
 
-Distributed under the MIT License. See `LICENSE` for more information.
+SkillxPro welcomes all open-source contributions! Check out our [CONTRIBUTING.md](CONTRIBUTING.md) to set up your branch names, write semantic commits, and match our high-fidelity coding guidelines. Let's make this project a flagship of GSSoC 2026! 🚀
