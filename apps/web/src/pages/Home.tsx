@@ -102,59 +102,62 @@ export const Home: React.FC = () => {
         <div className="flex-1 w-full max-w-xl h-[420px] relative hidden lg:block">
           <div className="absolute inset-0 flex items-center justify-center">
             
-            {/* Elevated White Material 3 Card */}
-            <div className="google-card w-[430px] h-[320px] p-6 relative overflow-hidden shadow-elevation2 z-20 flex flex-col justify-between hover:shadow-elevation3 hover:scale-101 transition-all duration-300">
-              
-              {/* Header inside Card */}
-              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
-                    <BookOpen className="w-5 h-5" />
+            {/* Unified relative container to pin floating panels to the main card boundaries */}
+            <div className="relative w-[430px] h-[320px]">
+              {/* Elevated White Material 3 Card */}
+              <div className="google-card w-full h-full p-6 relative overflow-hidden shadow-elevation2 z-20 flex flex-col justify-between hover:shadow-elevation3 hover:scale-101 transition-all duration-300">
+                
+                {/* Header inside Card */}
+                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+                      <BookOpen className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm text-textPrimary font-bold">{featuredSkill1.name}</div>
+                      <div className="text-[10px] text-textSecondary font-medium">Instructor: @{featuredSkill1.teacher.toLowerCase().replace(/\s+/g, '_')}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-sm text-textPrimary font-bold">{featuredSkill1.name}</div>
-                    <div className="text-[10px] text-textSecondary font-medium">Instructor: @{featuredSkill1.teacher.toLowerCase().replace(/\s+/g, '_')}</div>
+                  <div className="google-badge-green text-xs px-3 py-1 rounded-full font-bold">Active Match</div>
+                </div>
+
+                {/* Progress Tracker bar */}
+                <div className="space-y-2">
+                  <div className="h-2.5 bg-slate-100 rounded-full w-full overflow-hidden">
+                    <div className="h-full bg-primary rounded-full animate-bar-fill" style={{ width: '65%' }}></div>
+                  </div>
+                  <div className="flex justify-between text-[10px] text-textSecondary font-bold">
+                    <span>Exchange Progress</span>
+                    <span className="text-primary">65% Completed</span>
                   </div>
                 </div>
-                <div className="google-badge-green text-xs px-3 py-1 rounded-full font-bold">Active Match</div>
-              </div>
 
-              {/* Progress Tracker bar */}
-              <div className="space-y-2">
-                <div className="h-2.5 bg-slate-100 rounded-full w-full overflow-hidden">
-                  <div className="h-full bg-primary rounded-full animate-bar-fill" style={{ width: '65%' }}></div>
-                </div>
-                <div className="flex justify-between text-[10px] text-textSecondary font-bold">
-                  <span>Exchange Progress</span>
-                  <span className="text-primary">65% Completed</span>
-                </div>
-              </div>
-
-              {/* Surface Overlay Category Block */}
-              <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-100 flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-accent/15 flex items-center justify-center text-accent">
-                  <Compass className="w-4 h-4" />
-                </div>
-                <div className="flex-grow">
-                  <div className="text-xs text-textPrimary font-bold">{featuredSkill2.name}</div>
-                  <div className="text-[10px] text-textSecondary font-medium">Requested in return from @{featuredSkill2.teacher.toLowerCase().replace(/\s+/g, '_')}</div>
+                {/* Surface Overlay Category Block */}
+                <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-100 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-accent/15 flex items-center justify-center text-accent">
+                    <Compass className="w-4 h-4" />
+                  </div>
+                  <div className="flex-grow">
+                    <div className="text-xs text-textPrimary font-bold">{featuredSkill2.name}</div>
+                    <div className="text-[10px] text-textSecondary font-medium">Requested in return from @{featuredSkill2.teacher.toLowerCase().replace(/\s+/g, '_')}</div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Floating micro panels */}
-            <div className="google-card absolute top-[20px] right-[10px] w-48 h-24 p-5 z-10 shadow-elevation2 animate-google-float-1 flex flex-col justify-center border-l-4 border-l-primary">
-              <div className="text-[10px] text-textSecondary uppercase tracking-wider font-bold mb-1">Total Network Value</div>
-              <div className="text-2xl text-textPrimary font-black tracking-tight">$12,450</div>
-            </div>
+              {/* Floating micro panels pinned perfectly as "wings" outside the card boundaries */}
+              <div className="google-card absolute -top-6 -right-12 w-48 h-24 p-5 z-30 shadow-elevation2 animate-google-float-1 flex flex-col justify-center border-l-4 border-l-primary bg-white">
+                <div className="text-[10px] text-textSecondary uppercase tracking-wider font-bold mb-1">Total Network Value</div>
+                <div className="text-2xl text-textPrimary font-black tracking-tight">$12,450</div>
+              </div>
 
-            <div className="google-card absolute bottom-[20px] left-[10px] w-40 h-32 p-4 z-30 shadow-elevation2 animate-google-float-2 flex flex-col justify-between border-b-4 border-b-accent">
-              <div className="text-[10px] text-textSecondary uppercase tracking-wider font-bold">Network Speed</div>
-              <div className="flex items-end gap-1.5 h-12">
-                <div className="w-1/4 bg-slate-200 h-[40%] rounded-t"></div>
-                <div className="w-1/4 bg-slate-200 h-[70%] rounded-t"></div>
-                <div className="w-1/4 bg-accent h-[100%] rounded-t"></div>
-                <div className="w-1/4 bg-accent/60 h-[85%] rounded-t"></div>
+              <div className="google-card absolute -bottom-6 -left-12 w-40 h-32 p-4 z-30 shadow-elevation2 animate-google-float-2 flex flex-col justify-between border-b-4 border-b-accent bg-white">
+                <div className="text-[10px] text-textSecondary uppercase tracking-wider font-bold">Network Speed</div>
+                <div className="flex items-end gap-1.5 h-12">
+                  <div className="w-1/4 bg-slate-200 h-[40%] rounded-t"></div>
+                  <div className="w-1/4 bg-slate-200 h-[70%] rounded-t"></div>
+                  <div className="w-1/4 bg-accent h-[100%] rounded-t"></div>
+                  <div className="w-1/4 bg-accent/60 h-[85%] rounded-t"></div>
+                </div>
               </div>
             </div>
 

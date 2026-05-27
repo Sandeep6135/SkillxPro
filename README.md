@@ -32,7 +32,6 @@ SkillxPro/
 │       │   ├── pages/       # Responsive views (Home, Login, Dashboard, Admin)
 │       │   ├── types.ts     # Rigid typescript interfaces
 │       │   └── main.tsx     # SPA entry point
-├── legacy/                  # Legacy Vanilla HTML/CSS code files
 ├── CONTRIBUTING.md          # Guidelines for open-source participation
 ├── ROADMAP.md               # Feature backlog & complexity guides
 └── LICENSE                  # MIT License
